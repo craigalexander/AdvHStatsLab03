@@ -1,0 +1,43 @@
+# Group Exercise
+
+<br>
+
+This data set includes data for 39 species of mammals distributed over 13 orders. The data were used for analyzing the relationship between constitutional and ecological factors and sleeping in mammals. 
+
+Two sleep variables (dreaming and non dreaming) were recorded. Variables such as life span, body weight, brain weight and gestation time were evaluated. 
+
+Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.
+
+Download the `.csv` file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page). 
+
+Set your working directory and then load the `mammals` data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called `mammals.csv` rather than `mammals(1).csv` or whatever else. 
+
+```{r loadintorstudiomammals, eval = FALSE, echo = TRUE}
+mammals <- read.csv("mammals.csv")
+```
+
+<br>
+
+## Tasks
+
+<br>
+
+Repeat Exercises 9-12 again (written below as 1. - 4.) with two  variables of your choosing from the `mammals` data set. e.g. you could examine the relationship between a species' brain weight ($x$) and the total amount of sleep they get ($y$). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.
+
+<br>
+
+1. Produce a scatterplot of the variables. Does there seem to be a linear relationship?
+
+<br>
+
+2. Fit a suitable linear model to the variables. 
+
+<br>
+
+3. What is the equation of the fitted regression line? 
+
+<br>
+
+4. Check the model assumptions. Do they all hold?
+
+<br>

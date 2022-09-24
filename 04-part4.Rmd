@@ -1,0 +1,94 @@
+# Part 4 - Prediction and Prediction Errors
+
+<br>
+
+Let's return to looking at the relationship between `runs` and `at_bats`. We'll combine our graph before with our fitted regression line from the model superimposed on top. Recall the equation for the regression line is:
+
+$$\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}$$
+
+```{r runsatbatsline, exho = TRUE, eval = FALSE}
+ggplot(data = mlb11, aes(x = at_bats, y = runs)) +
+    geom_point() +
+    labs(title = "Relationship between Runs and At-Bats", x = "At-Bats", y = "Runs") +
+    geom_smooth(method = "lm", se = FALSE)
+```
+
+Here, we are literally adding a layer on top of our plot. `geom_smooth` adds the regression line fitted by minimizing the errors sum of squares. It can also show us the standard error `se` associated with our line, but we won't show that for now, using the `se = FALSE` argument. (Although you can set `se = TRUE` if you're interested in looking at it. It essentially creates a continuous confidence interval for values around the regression line.)
+
+The regression line can be used to predict $y$ at any value of $x$ within the range of observed $x$ values.. 
+
+<br>
+
+**Interpolation is when...**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+   "Predictions for y are made from values of x outside the range of observed data.",
+   answer = "Predictions for y are made from values of x within the range of observed data."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+**Extrapolation is when...**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+   "Predictions for y are made from values of x within the range of observed data.",
+   answer = "Predictions for y are made from values of x outside the range of observed data."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+Extrapolation is not usually recommended. Predictions made within the range of the data are more reliable, and are also used to compute the residuals.
+
+<br>
+
+## **Exercise 4**
+
+The New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is `r fitb(177)`
+
+<br>
+
+**Based on your previous answer, is the fitted value for the New York Yankees an overestimate or underestimate of their runs?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "An overestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.",
+    "An underestimate. The negative residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has underestimated the actual value.",
+    "An overestimate. The positive residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has overestimated the actual value.",
+    answer = "An underestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+## **Exercise 5**
+
+The Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) `r fitb(-55.64)`
+
+<br>
+
+**Based on your previous answer, is the fitted value for the Chicago Cubs an overestimate or underestimate of their runs?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    answer = "An overestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has overestimated the actual value.",
+    "An underestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has underestimated the actual value.",
+    "An overestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.",
+    "An underestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>

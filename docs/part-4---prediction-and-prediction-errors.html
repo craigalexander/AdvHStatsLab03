@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Part 4 - Prediction and Prediction Errors | S1Z Lab 3</title>
+  <meta name="description" content="5 Part 4 - Prediction and Prediction Errors | S1Z Lab 3" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Part 4 - Prediction and Prediction Errors | S1Z Lab 3" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Part 4 - Prediction and Prediction Errors | S1Z Lab 3" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-3---the-linear-model.html"/>
+<link rel="next" href="part-5---model-diagnostics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Part 1 - Introducing the Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="part-2---sum-of-squared-residuals.html"><a href="part-2---sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Part 2 - Sum of Squared Residuals</a></li>
+<li class="chapter" data-level="4" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html"><i class="fa fa-check"></i><b>4</b> Part 3 - The Linear Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model</a></li>
+<li class="chapter" data-level="4.2" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong></a></li>
+<li class="chapter" data-level="4.2.2" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Part 4 - Prediction and Prediction Errors</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Part 5 - Model Diagnostics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model</a></li>
+<li class="chapter" data-level="6.2" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong></a></li>
+<li class="chapter" data-level="6.2.2" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Part 6 - Bringing it all together</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong></a></li>
+<li class="chapter" data-level="7.2" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong></a></li>
+<li class="chapter" data-level="7.3" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong></a></li>
+<li class="chapter" data-level="7.4" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
+<li class="chapter" data-level="7.5" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 3</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-4---prediction-and-prediction-errors" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Part 4 - Prediction and Prediction Errors<a href="part-4---prediction-and-prediction-errors.html#part-4---prediction-and-prediction-errors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><br></p>
+<p>Let's return to looking at the relationship between <code>runs</code> and <code>at_bats</code>. We'll combine our graph before with our fitted regression line from the model superimposed on top. Recall the equation for the regression line is:</p>
+<p><span class="math display">\[\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}\]</span></p>
+<p>Here, we are literally adding a layer on top of our plot. <code>geom_smooth</code> adds the regression line fitted by minimizing the errors sum of squares. It can also show us the standard error <code>se</code> associated with our line, but we won't show that for now, using the <code>se = FALSE</code> argument. (Although you can set <code>se = TRUE</code> if you're interested in looking at it. It essentially creates a continuous confidence interval for values around the regression line.)</p>
+<p>The regression line can be used to predict <span class="math inline">\(y\)</span> at any value of <span class="math inline">\(x\)</span> within the range of observed <span class="math inline">\(x\)</span> values..</p>
+<p><br></p>
+<p><strong>Interpolation is when...</strong></p>
+<div id="radio_QTJXROTDJU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QTJXROTDJU" value=""></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_QTJXROTDJU" value="answer"></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label>
+</div>
+<p><br></p>
+<p><strong>Extrapolation is when...</strong></p>
+<div id="radio_UPBNQAUFZG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UPBNQAUFZG" value=""></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_UPBNQAUFZG" value="answer"></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label>
+</div>
+<p>Extrapolation is not usually recommended. Predictions made within the range of the data are more reliable, and are also used to compute the residuals.</p>
+<p><br></p>
+<div id="exercise-4" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> <strong>Exercise 4</strong><a href="part-4---prediction-and-prediction-errors.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is <input class='webex-solveme nospaces' size='3' data-answer='["177"]'/></p>
+<p><br></p>
+<p><strong>Based on your previous answer, is the fitted value for the New York Yankees an overestimate or underestimate of their runs?</strong></p>
+<div id="radio_QBPEOFMTZI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QBPEOFMTZI" value="answer"></input> <span>An underestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_QBPEOFMTZI" value=""></input> <span>An underestimate. The negative residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_QBPEOFMTZI" value=""></input> <span>An overestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_QBPEOFMTZI" value=""></input> <span>An overestimate. The positive residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has overestimated the actual value.</span></label>
+</div>
+<p><br></p>
+</div>
+<div id="exercise-5" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> <strong>Exercise 5</strong><a href="part-4---prediction-and-prediction-errors.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) <input class='webex-solveme nospaces' size='6' data-answer='["-55.64"]'/></p>
+<p><br></p>
+<p><strong>Based on your previous answer, is the fitted value for the Chicago Cubs an overestimate or underestimate of their runs?</strong></p>
+<div id="radio_YSBIMBFYSS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YSBIMBFYSS" value="answer"></input> <span>An overestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YSBIMBFYSS" value=""></input> <span>An underestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YSBIMBFYSS" value=""></input> <span>An overestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YSBIMBFYSS" value=""></input> <span>An underestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label>
+</div>
+<p><br></p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-3---the-linear-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-5---model-diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+# Part 6 - Bringing it all together
+
+<br>
+
+## **Exercise 9**
+
+Let's look at one of the three newer variables from `mlb11`, slugging proportion, called `new_slug`. Slugging proportion is essentially a measure of the productivity of a batter. This is one of the statistics used by the author of Moneyball. 
+
+Produce a scatterplot of this variable against `runs`. Does there seem to be a linear relationship?
+
+`r hide("Hint")`
+
+```{r hint9, eval = FALSE, echo = TRUE}
+ggplot(data = ???, mapping = ???) +
+    geom_point() +
+    labs(???)
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol9, eval = FALSE, echo = TRUE}
+ggplot(data = mlb11, mapping = aes(x = new_slug, y = runs)) +
+    geom_point() +
+    labs(title = "Relationship between Runs and Slugging Prop.", x = "Slugging Prop.", y = "Runs")
+```
+
+`r unhide()`
+
+<br>
+
+**Does the relationship between runs and slugging proportion look linear? If you knew a team’s slugging proportion, would you be comfortable using a linear model to predict the number of runs?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the slugging proportion. We would have to consider a different varaible to choose.",
+    answer = "Yes, the relationship does appear strong, positive and linear. Therefore, we would be comfortable using a linear model to predict the number of runs from the slugging proportion.",
+    "Yes, the relationship does appear moderately positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion.",
+    "Yes, the relationship does appear weakly positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+## **Exercise 10**
+
+Fit a linear model `m3` to this pair of variables `new_slug` and `runs`. 
+
+`r hide("Hint")`
+
+```{r hint10, eval = FALSE, echo = TRUE}
+m3 <- lm(???)
+
+summary(???)
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol10, eval = FALSE, echo = TRUE}
+m3 <- lm(runs~new_slug, data = mlb11)
+
+summary(m3)
+```
+
+`r unhide()`
+
+<br>
+
+**How does the model between runs and slugging proportion compare to the at-bats and homeruns models?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs.",
+    "The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a lower proportion of the variability in runs, and hence does a worse job of predicting runs.",
+    "The new slugging model has an R^2 value of 0.897, roughly the same as the at-bats and homeruns models. Therefore slugging proportion seems to explain around the same proportion of the variability in runs, and hence predicts runs as well as the previous two models.",
+    answer = "The new slugging model has an R^2 value of 0.897, significantly higher than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+## **Exercise 11**
+
+A: $\textrm{Slugging Prop} = -376 + 2681*\textrm{Runs}$
+
+B :$\textrm{Runs} = 2681 -376*\textrm{Slugging Prop}$
+
+C: $\textrm{Runs} = -376 + 2681*\textrm{Slugging Prop}$
+
+D: $\textrm{Slugging Prop} = 2681 - 376*\textrm{Runs}$
+
+<br>
+
+**The equation of the regression line is** `r fitb("C")`
+
+<br>
+
+**What does the slope tell us in the context of the relationship between the success of a team and its slugging percentage?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "For a unit increase in slugging prop, the expected number of runs they hit in that season decreases by 2681",
+    "For a unit increase in runs, the expected number of homeruns they hit in that season increases by 2681.",
+    "For a unit increase in runs, the expected number of homeruns they hit in that season decreases by 2681",
+    answer = "For a unit increase in slugging prop, the expected number of runs they hit in that season increases by 2681."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+## **Exercise 12**
+
+Check the model assumptions of the new model. Do they all hold?
+
+`r hide("Hint 1")`
+
+```{r hint12_1, eval = FALSE, echo = TRUE}
+ggplot(???) +
+    geom_???() +
+    geom_hline(???) +
+    labs(???)
+
+ggplot(???) +
+    geom_???(???) +
+    xlab(???)
+
+ggplot(???) +
+    stat_qq() +
+    stat_qq_line()
+```
+
+`r unhide()`
+
+
+`r hide("Hint 2")`
+
+```{r hint12_2, eval = FALSE, echo = TRUE}
+ggplot(???) +
+    geom_point() +
+    geom_hline(???) +
+    labs(x = "Fitted Values", y = "Residuals")
+
+ggplot(???) +
+    geom_histogram(???) +
+    xlab("Residuals")
+
+ggplot(???) +
+    stat_qq() +
+    stat_qq_line()
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol12, eval = FALSE, echo = TRUE}
+ggplot(data = m3, aes(x = .fitted, y = .resid)) +
+    geom_point() +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    labs(x = "Fitted Values", y = "Residuals")
+
+ggplot(data = m3, aes(x = .resid)) +
+    geom_histogram(color = "white", binwidth = 15) +
+    xlab("Residuals")
+
+ggplot(data = m3, aes(sample = .resid)) +
+    stat_qq() +
+    stat_qq_line()
+```
+
+`r unhide()`
+
+<br>
+
+**Do all the model assumptions hold?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "The points are not randomly scattered across and above/below  zero line, so constant variance and mean zero residual assumptions do not hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual  assumption seems to hold however. The final two assumptions are hard for us to verify, but we will assume they hold",
+    "The points are not randomly scattered across and above/below  zero line, so constant variance and mean zero residual assumptions do not hold. The histogram also looks non-normal and the qq-plot has too many deviations from the diagonal line, so the normally distributed residual  assumption seems to fail as well. The final two assumptions are hard for us to verify, but we will assume they hold.",
+    answer = "The points are randomly scattered across and above/below  zero line, so constant variance and mean zero residual assumptions
+hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual  assumption seems to hold also. The final two assumptions are hard for us to verify, but we will assume they hold",
+    "The points are randomly scattered across and above/below  zero line, so constant variance and mean zero residual assumptions
+hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual  assumption seems to hold also. The final two assumptions are hard for us to verify, so we assume they don't hold."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+## **Exercise 13**
+
+Assuming the new model assumptions hold, of the three models considered in this lab, which model do you suggest is best at predicting `runs` and why? 
+
+<br>

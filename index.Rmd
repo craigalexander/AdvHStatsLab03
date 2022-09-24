@@ -1,0 +1,103 @@
+---
+title: "S1Z Lab 3"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r setup, include = FALSE}
+library(webexercises)
+library(tinytex)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(tidyverse)
+library(openintro)
+library(infer)
+library(gridExtra)
+library(HistData)
+knitr::opts_chunk$set(echo = FALSE)
+
+mlb11 <- read.csv("mlb11.csv")
+m1 <- lm(runs~at_bats, data = mlb11)
+m2 <- lm(runs~homeruns, data = mlb11)
+m3 <- lm(runs~new_slug, data = mlb11)
+
+mammals <- read.csv("mammals.csv")
+```
+
+```{r eval=FALSE, echo=FALSE}
+install.packages("bookdown")
+```
+
+```{r include=FALSE, echo=FALSE}
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Welcome to S1Z Lab 3 
+
+```{r graphlinreg, echo = FALSE, out.width = "75%", fig.cap = ""}
+knitr::include_graphics("images/linear_regression.jpg")
+```
+
+<br>
+
+## Intended Learning Outcomes 
+
+<br>
+
+This lab will introduce the concept of modelling data using simple linear regression (SLR). 
+
+The key idea behind SLR is to attempt to explore a relationship between an:
+
+* **Outcome/response** variable $y$, and an
+
+* **Explanatory/predictor** variable $x$. 
+
+Modelling generally has two main purposes:
+
+1. **Explanation:** To describe a possible relationship between an outcome variable $y$ and an explanatory variable $x$, and determine if the relationship statistically significant.
+
+2. **Prediction:** To be able to predict the outcome variable $y$ for a new value of the explanatory variable $x$.  
+
+There are many different modelling techniques. In this lab, you will learn about one of the most commonly used approaches; **linear regression**. In particular, **simple** linear regression, where there is only one explanatory variable $x$. In Lab 2 we will consider the case of multiple linear regression where there are more than one explanatory variables.
+
+<br>
+
+## Simple Linear Regression 
+
+<br>
+
+A statistical model is a mathematical statement describing the variability in a random variable $y$, as it relates to the explanatory variable $x$. 
+
+
+A simple linear regression model involves fitting a regression line to the data. Hence, a simple linear regression model for $n$ observations of $x$ and $y$ can be written as follows:
+
+$$y_i = \beta_0 + \beta_1 x_i + \epsilon_i$$ 
+
+such that $\epsilon_i \sim N(0,\sigma^2)$ and $i = 1,...,n$, where:
+
+* $y_i$ is the $i^{th}$ observation for the response variable. 
+
+* $\beta_0$ is the **intercept** of the regression line.
+
+* $\beta_1$ is the **slope** of the regression line. 
+
+* $x_i$ is the $i^{th}$ observation of the explanatory variable. 
+
+* $\epsilon_i$ is the $i^{th}$ random component. 
+
+
+The random components $\epsilon_i$ are assumed to be normally distributed with mean 0 and constant variance $\sigma^2$. We are essentially adding random white noise to the deterministic part of the model $\alpha + \beta x_i$ to allow for the deviations of observations from the estimated regression line. The inclusion of a random component $\epsilon_i$ makes the model statistical, rather than deterministic.
+
+
+The full probability model for $y_i$ given $x_i$ can be written as 
+
+$$y_i|x_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)$$
+Hence the mean comes from the deterministic part of the model, and the variance comes from the random part. 
+
+<br>

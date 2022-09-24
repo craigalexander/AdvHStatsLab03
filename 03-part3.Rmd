@@ -1,0 +1,159 @@
+# Part 3 - The Linear Model 
+
+<br>
+
+## Fitting the Linear Model 
+
+As you can imagine, doing this process of minimising the sum of the squares of the residuals through trial and error is either going to a) take far too long and/or b) be very inaccurate. 
+
+This is why we use `R` to minimise the sums of squares of the residuals for us, and hence fit the regression line for us as well. 
+
+We use another function to do this, the `lm()` function i.e. the linear model function. 
+
+This function takes two variables, separated by a `~` with the $y$ on the left and the $x$ on the right, as in $y \sim x$. You also tell R where to look for the variables with the usual `data = ` argument. For example using our `runs` and `at_bats` example we would type:
+
+```{r lm1, eval = FALSE, echo = TRUE}
+m1 <- lm(runs~at_bats, data = mlb11)
+```
+
+According to the above code, we have saved the estimated regression and assigned it to the object `m1` as our first model.  Nothing appears when we run the code because we've not asked R to show us anything, just create the object `m1`.
+
+The output of this linear model function (not shown, but stored in `m1`) contains all of the information you would ever need about the model. To see it in a more condensed and accessible way you can use the summary function `summary()` on the model. 
+
+<br>
+
+## Summary of the Linear Model
+
+<br>
+
+Run the code in the code below to look at the output of model summary. 
+
+```{r modelsummary, eval = FALSE, echo = TRUE}
+summary(m1)
+```
+
+This looks like a daunting and unintelligible mass of information, but you will get used to seeing more of these and which parts are relevant to our needs.  Let's consider the output piece by piece. 
+
+First, the formula used to describe the model is shown at the top (`lm(formula = runs ~ at_bats, data = mlb11)`).
+
+After the formula you find the five-figure summary of the residuals. This isn't something you'll look at that often. 
+
+The coefficients table shown next is key; let's just have a quick reminder of the structure of a simple linear regression model so that we know exactly what the table is telling us. Recall that for our explanatory variable $x$ and our outcome variable $y$ we have that:
+
+$$y_i = \beta_0 + \beta_1 x_i + \epsilon_i$$ 
+Recall also that $\beta_0$ is the **intercept** of the regression line and $\beta_1$ is the **slope** of the regression line.
+
+Let's return to the coefficients table. Particularly important to us now is the first column, the one titled "Estimate". **This gives us our $\alpha$ and $\beta$ values.** Namely the (Intercept) estimate is $\beta_0$ and the at_bats estimate is the slope $\beta_1$.
+
+So we can now write down our least squares estimated regression line as follows: 
+
+$$\hat{y} = -2789 + 0.6305*x_i$$
+$$\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}$$
+One last piece of information we will discuss from the summary output is the Multiple R-squared, or $R^2$. 
+
+$$R^2 = \textrm{The proportion of variability in the response variable that is explained by the explanatory variable}$$
+Looking at our summary, we have an $R^2 = 0.3729$. This means that only $37.3\%$ of the variability in the number of runs is explained by the at-bats. This is quite a low value, and implies that at-bats is not an excellent predictor of the number of runs a major league baseball team scores.  
+
+<br>
+
+### **Exercise 2**
+
+Create a plot to display the relationship between `runs` and `homeruns`, i.e. with `runs` as your outcome/response variable and `at_bats` as your explanatory/predictor variable. Add a title and axes labels using the same method as before. 
+
+`r hide("Hint")`
+
+```{r hint2, eval = FALSE, echo = TRUE}
+ggplot(data = ???, mapping = ???) +
+    geom_point() +
+    labs(???)
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol2, eval = FALSE, echo = TRUE}
+ggplot(data = mlb11, mapping = aes(x = homeruns, y = runs)) +
+    geom_point() +
+    labs(title = "Relationship between Runs and Homeruns", x = "Homeruns", y = "Runs")
+```
+
+`r unhide()`
+
+<br>
+
+**Does the relationship between runs and homeruns look linear? If you knew a team’s homeruns, would you be comfortable using a linear model to predict the number of runs?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    answer = "Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the homeruns",
+    "No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.",
+    "Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.",
+    "No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the homeruns."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+
+### **Exercise 3**
+
+Fit a new model `m2` that uses `homeruns` to predict `runs`, and show a summary of your new model. 
+
+`r hide("Hint")`
+
+```{r hint3, eval = FALSE, echo = TRUE}
+m2 <- lm(???)
+
+summary(???)
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol3, eval = FALSE, echo = TRUE}
+m2 <- lm(runs~homeruns, data = mlb11)
+
+summary(m2)
+```
+
+`r unhide()`
+
+<br>
+
+A: $\textrm{Homeruns} = 1.83 + 415*\textrm{Runs}$
+
+B :$\textrm{Runs} = 1.83 + 415*\textrm{Homeruns}$
+
+C: $\textrm{Runs} = 415 + 1.83*\textrm{Homeruns}$
+
+D: $\textrm{Homeruns} = 415 + 1.83*\textrm{Runs}$
+
+<br>
+
+**The equation of the regression line is** `r fitb("C")`
+
+<br>
+
+
+**What does the slope tell us in the context of the relationship between success of a team and its home runs?**
+
+```{r, echo = FALSE}
+q_name <- sample(c(
+    "For a unit increase in homeruns, i.e. for each one more homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415",
+    "For a unit increase in runs, i.e. for each one more runs a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.",
+    "For a unit increase in runs, i.e. for each one more runs a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415",
+    answer = "For a unit increase in homeruns, i.e. for each one more homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83."
+)
+)
+```
+
+`r longmcq(q_name)`
+
+<br>
+

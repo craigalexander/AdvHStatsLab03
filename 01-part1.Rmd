@@ -1,0 +1,140 @@
+# Part 1 - Introducing the Data 
+
+<br>
+
+```{r oaklandathletics, echo = FALSE, out.width = "75%", fig.cap = ""}
+knitr::include_graphics("images/moneyball.jpg")
+```
+
+<br>
+
+The movie Moneyball follows a low-budget American baseball team, the Oakland Athletics, who believed that underused statistics, such as a player’s ability to get on base, better predict the ability to score runs, compared to statistics typically used like home runs and batting average. Obtaining players who excelled in these underused statistics turned out to be much more affordable for the team.
+
+In this lab we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.
+
+Our aim will be to summarise these relationships both graphically and numerically in order to find which variable, if any, helps us best predict a team’s runs scored in a season.
+
+The data set looks at the 2011 season in particular, and has data on all of the Major League Baseball teams, the highest paid baseball league in the United States. 
+
+For this lab we’ll consider 9 of the variables in the dataset. If you wish to attempt the Optional Further Tasks in your own time, you’ll work with some of the other variables as well. 
+
+The variables we'll consider are:
+
+• **team** : Name of the team. 	
+
+• **runs** : Number of runs. 	
+
+• **at_bats** : Number of at bats (a batters turn hitting against a pitcher, i.e. the member of the opposite team throwing the ball at them). 	 
+
+• **hits** : Number of hits. 
+
+• **homeruns** : Number of home runs. 	
+
+• **bat_avg** : Batting average.  
+
+• **strikeouts** : Number of strikeouts. 	 
+
+• **stolen_bases** : Number of stolen bases. 	
+
+• **wins** : Number of wins. 	
+
+
+First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called `mlb11`.
+
+Run the code below to look at the first 6 rows of data and the structure of it. You have seen the `head()` and `str()` functions previously in your S1Y labs. 
+
+```{r head, echo = TRUE, eval = FALSE} 
+head(mlb11)
+```
+
+<br>
+
+```{r str, echo = TRUE, eval = FALSE}
+str(mlb11)
+```
+
+<br>
+
+How many baseball teams are there in America's Major League? `r fitb(30)`
+
+<br>
+
+## **Exercise 1** 
+
+
+Create a plot to display the relationship between `runs` and `at_bats`, i.e. with `runs` as your outcome/response variable and `at_bats` as your explanatory/predictor variable. As an added bonus, you can add `+ labs(title = "", x = "", y = "")` onto your graph code to add a title and axes labels. Put the appropriate text between the quotation marks. 
+
+`r hide("Hint")`
+
+```{r hint1, echo = TRUE, eval = FALSE}
+ggplot(data = ???, mapping = ???) +
+    geom_point() +
+    labs(???)
+```
+
+`r unhide()`
+
+
+`r hide("Solution")`
+
+```{r sol1, echo = TRUE, eval = FALSE}
+ggplot(data = mlb11, mapping = aes(x = at_bats, y = runs)) +
+    geom_point() +
+    labs(title = "Relationship between Runs and At-Bats", x = "At-Bats", y = "Runs")
+```
+
+`r unhide()`
+
+<br>
+
+**Does the relationship between runs and at-bats look linear? If you knew a team’s at-bats, would you be comfortable using a linear model to predict the number of runs?**
+
+```{r, echo = FALSE}
+q_ex1 <- sample(c(
+   "No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.",
+    "Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.",
+    "No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.",
+    answer = "Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats."
+)
+)
+```
+
+`r longmcq(q_ex1)`
+
+<br>
+
+If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. There is quite a lot of room for interpretation when looking at correlation coefficients, but a rough guide to interpreting them is given below. 
+
+| Correlation Coefficient  | Verbal Interpretation |
+|--------------------------|-----------------------|
+|0.9 to 1.0 or -0.9 to -1.0|Very strong positive or negative correlation|
+|0.7 to 0.9 or -0.7 to -0.9|Strong positive or negative correlation|
+|0.5 to 0.7 or -0.5 to -0.7|Moderate positive or negative correlation|
+|0.3 to 0.5 or -0.3 to -0.5|Weak positive or negative correlation|
+|0.0 to 0.3 or 0.0 to -0.3|Very weak positive or negative correlation|
+
+Run the following code to find the correlation coefficient between `runs` and `at_bats`. 
+
+```{r runatbatcorcoef, echo = TRUE, eval = FALSE}
+mlb11 %>%
+    summarise(cor(runs, at_bats))
+```
+
+<br>
+
+**Looking at your plot from the previous exercise, how would you describe the relationship between the two variables?**
+
+```{r, echo = FALSE}
+q_ex1_2 <- sample(c(
+    "There appears to be a moderate positive linear relationship between the runs  of a Major League baseball team and their at-bats. There aren't  any unusual observations",
+    answer = "There appears to be a moderate positive linear relationship between the runs  of a Major League baseball team and their at-bats. There aren't  any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.",
+    "There appears to be a weak positive linear relationship between the runs  of a Major League baseball team and their at-bats. There aren't any unusual observations.",
+    "There appears to be a strong positive linear relationship between the runs  of a Major League baseball team and their at-bats. There aren't  any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual."
+)
+)
+```
+
+`r longmcq(q_ex1_2)`
+
+<br>
+
