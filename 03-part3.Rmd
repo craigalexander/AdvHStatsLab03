@@ -1,4 +1,4 @@
-# Part 3 - The Linear Model 
+# The Linear Model 
 
 <br>
 
@@ -43,7 +43,7 @@ The coefficients table shown next is key; let's just have a quick reminder of th
 $$y_i = \beta_0 + \beta_1 x_i + \epsilon_i$$ 
 Recall also that $\beta_0$ is the **intercept** of the regression line and $\beta_1$ is the **slope** of the regression line.
 
-Let's return to the coefficients table. Particularly important to us now is the first column, the one titled "Estimate". **This gives us our $\alpha$ and $\beta$ values.** Namely the (Intercept) estimate is $\beta_0$ and the at_bats estimate is the slope $\beta_1$.
+Let's return to the coefficients table. Particularly important to us now is the first column, the one titled "Estimate". **This gives us our $\beta_0$ and $\beta_1$ values.** Namely the (Intercept) estimate is $\beta_0$ and the at_bats estimate is the slope $\beta_1$.
 
 So we can now write down our least squares estimated regression line as follows: 
 
@@ -51,7 +51,8 @@ $$\hat{y} = -2789 + 0.6305*x_i$$
 $$\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}$$
 One last piece of information we will discuss from the summary output is the Multiple R-squared, or $R^2$. 
 
-$$R^2 = \textrm{The proportion of variability in the response variable that is explained by the explanatory variable}$$
+$R^2 =$ **The proportion of variability in the response variable that is explained by the explanatory variable**
+
 Looking at our summary, we have an $R^2 = 0.3729$. This means that only $37.3\%$ of the variability in the number of runs is explained by the at-bats. This is quite a low value, and implies that at-bats is not an excellent predictor of the number of runs a major league baseball team scores.  
 
 <br>
@@ -126,6 +127,10 @@ summary(m2)
 
 <br>
 
+**The equation of the regression line is** `r fitb("C")`
+
+<br>
+
 A: $\textrm{Homeruns} = 1.83 + 415*\textrm{Runs}$
 
 B :$\textrm{Runs} = 1.83 + 415*\textrm{Homeruns}$
@@ -136,19 +141,17 @@ D: $\textrm{Homeruns} = 415 + 1.83*\textrm{Runs}$
 
 <br>
 
-**The equation of the regression line is** `r fitb("C")`
 
-<br>
 
 
 **What does the slope tell us in the context of the relationship between success of a team and its home runs?**
 
 ```{r, echo = FALSE}
 q_name <- sample(c(
-    "For a unit increase in homeruns, i.e. for each one more homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415",
-    "For a unit increase in runs, i.e. for each one more runs a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.",
-    "For a unit increase in runs, i.e. for each one more runs a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415",
-    answer = "For a unit increase in homeruns, i.e. for each one more homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83."
+    "For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415",
+    "For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.",
+    "For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415",
+    answer = "For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83."
 )
 )
 ```

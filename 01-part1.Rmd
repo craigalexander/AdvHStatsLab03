@@ -1,4 +1,4 @@
-# Part 1 - Introducing the Data 
+# Introducing the Data 
 
 <br>
 
@@ -38,6 +38,14 @@ The variables we'll consider are:
 
 • **wins** : Number of wins. 	
 
+
+## Loading the Data {-}
+
+You may download the dataset named `mlb11.csv` file from our Moodle course page. Once the file has downloaded, **save it in the same folder** as the `R` script file you created and saved for this lab. You should now set your working directory to this location by clicking `Session > Set Working Directory > To Source File Location`. You can load the data set into your workspace by running the code below. 
+
+```{r import-data-optional, echo=TRUE, warnings=FALSE, message=FALSE}
+mlb11 <- read.csv("mlb11.csv")
+```
 
 First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called `mlb11`.
 
@@ -122,7 +130,7 @@ mlb11 %>%
 
 <br>
 
-**Looking at your plot from the previous exercise, how would you describe the relationship between the two variables?**
+**Looking at your plot and the correlation coefficient you just calculated, how would you describe the relationship between the two variables?**
 
 ```{r, echo = FALSE}
 q_ex1_2 <- sample(c(

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Group Exercise | S1Z Lab 3</title>
-  <meta name="description" content="8 Group Exercise | S1Z Lab 3" />
+  <title>6 Model Diagnostics | S1Z Lab 3</title>
+  <meta name="description" content="6 Model Diagnostics | S1Z Lab 3" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta property="og:title" content="6 Model Diagnostics | S1Z Lab 3" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta name="twitter:title" content="6 Model Diagnostics | S1Z Lab 3" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bringing-it-all-together.html"/>
-
+<link rel="prev" href="prediction-and-prediction-errors.html"/>
+<link rel="next" href="bringing-it-all-together.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,38 +195,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="group-exercise" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Group Exercise<a href="group-exercise.html#group-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="model-diagnostics" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Model Diagnostics<a href="model-diagnostics.html#model-diagnostics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
-<p>This data set includes data for 39 species of mammals distributed over 13 orders. The data were used for analyzing the relationship between constitutional and ecological factors and sleeping in mammals.</p>
-<p>Two sleep variables (dreaming and non dreaming) were recorded. Variables such as life span, body weight, brain weight and gestation time were evaluated.</p>
-<p>Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.</p>
-<p>Download the <code>.csv</code> file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page).</p>
-<p>Set your working directory and then load the <code>mammals</code> data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called <code>mammals.csv</code> rather than <code>mammals(1).csv</code> or whatever else.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="group-exercise.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mammals.csv&quot;</span>)</span></code></pre></div>
-<p><br></p>
-<div id="tasks" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Tasks<a href="group-exercise.html#tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<p>Repeat Exercises 9-12 again (written below as 1. - 4.) with two variables of your choosing from the <code>mammals</code> data set. e.g. you could examine the relationship between a species' brain weight (<span class="math inline">\(x\)</span>) and the total amount of sleep they get (<span class="math inline">\(y\)</span>). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.</p>
-<p><br></p>
+<p>Recall once more the notation for our linear model:</p>
+<p>For <span class="math inline">\(n\)</span> observations of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> we have:</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 x_i + \epsilon_i\]</span></p>
+<p><span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span> and <span class="math inline">\(i = 1,...,n\)</span>.</p>
+<p>The full probability model for <span class="math inline">\(y_i\)</span> given <span class="math inline">\(x_i\)</span> can be written as</p>
+<p><span class="math display">\[y_i|x_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)\]</span></p>
+<div id="assumptions-of-the-linear-model" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Assumptions of the Linear Model<a href="model-diagnostics.html#assumptions-of-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we fit a simple linear regression model there are five main assumptions that have to hold in order for the model to be legitimate. These assumptions are:</p>
 <ol style="list-style-type: decimal">
-<li>Produce a scatterplot of the variables. Does there seem to be a linear relationship?</li>
+<li><p><strong>Assumption 1:</strong> The deterministic part of the model captures all the non-random structure in the data, i.e. the residuals have mean zero.</p></li>
+<li><p><strong>Assumption 2:</strong> The scale of the variability of the residuals is constant at all values of the explanatory variables.</p></li>
+<li><p><strong>Assumption 3:</strong> The residuals are normally distributed.</p></li>
+<li><p><strong>Assumption 4:</strong> The residuals are independent.</p></li>
+<li><p><strong>Assumption 5:</strong> The values of the explanatory variables are recorded without error.</p></li>
+</ol>
+</div>
+<div id="how-to-check-the-assumptions-of-a-linear-model" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> How to check the assumptions of a Linear Model<a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Assumption 1:</strong> Plot the residuals against the explanatory variable (e.g. <code>at_bats</code>), or plot the residuals against the fitted values (<span class="math inline">\(\hat{y}\)</span>). If the first assumption holds, i.e. the residuals have mean zero, then the residuals should be scattered randomly above and below the <span class="math inline">\(y=0\)</span> line.</p></li>
+<li><p><strong>Assumption 2:</strong> Plot the residuals against the fitted values. If the second assumption holds, i.e. the scale of the variability of the residuals is constant at all values of the explanatory variables, then the residuals should be scattered randomly across the <span class="math inline">\(y=0\)</span> line, with no fanning or any other shape, such as a parabola.</p></li>
+<li><p><strong>Assumption 3:</strong> Plot a histogram of the residuals, or make a QQ-plot. If the third assumption holds, i.e. the residuals are normally distributed, the histogram should appear normally distributed, in the usual bell shape and centred at zero. For the QQ-plot, the points should be as close to a straight diagonal line as possible.</p></li>
+<li><p><strong>Assumption 4:</strong> Difficult to formally examine and often justified on the basis of experimental context.</p></li>
+<li><p><strong>Assumption 5:</strong> Difficult to formally examine and often justified on the basis of experimental context.</p></li>
 </ol>
 <p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Fit a suitable linear model to the variables.</li>
-</ol>
+<div id="exercise-6" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> <strong>Exercise 6</strong><a href="model-diagnostics.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For the linear model of runs against at-bats model, does the assumption that the deterministic part of the model captures all the non-random structure in the data, i.e. the residuals have mean zero, hold?</p>
+<p>Run the code below to look at the scatter plot of the model residuals on the y-axis against the fitted values on the x-axis.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="model-diagnostics.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="model-diagnostics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="model-diagnostics.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="model-diagnostics.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
+<p>In the above code, <code>geom_hline()</code> adds a horizontal dashed line at y equals zero.</p>
 <p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>What is the equation of the fitted regression line?</li>
-</ol>
+<p><strong>Does the assumption hold?</strong></p>
+<div id="radio_MOIKSHJETI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MOIKSHJETI" value=""></input> <span>No, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MOIKSHJETI" value="answer"></input> <span>Yes, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MOIKSHJETI" value=""></input> <span>No, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals do not have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MOIKSHJETI" value=""></input> <span>Yes, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals have non-zero mean.</span></label>
+</div>
 <p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Check the model assumptions. Do they all hold?</li>
-</ol>
+</div>
+<div id="exercise-7" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> <strong>Exercise 7</strong><a href="model-diagnostics.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Using the same figure above, for the runs against at-bats model, does the assumption that the scale of the variability of the residuals is constant at all values of the explanatory variables, hold?</strong></p>
+<div id="radio_RVQMWIFDTF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RVQMWIFDTF" value=""></input> <span>No, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_RVQMWIFDTF" value=""></input> <span>No, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_RVQMWIFDTF" value="answer"></input> <span>Yes, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_RVQMWIFDTF" value=""></input> <span>Yes, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label>
+</div>
+<p><br></p>
+<p>See below for some examples of the second assumption not holding.</p>
+<p><img src="images/first-assumption.jpg" width="100%" /></p>
+<p><br></p>
+<p><strong>Exercise 8</strong></p>
+<p>For the runs against at-bats model, does the assumption that the residuals are normally distributed, hold?</p>
+<p>Run the code below to look at both the histogram and the normal Q-Q plot of the model residuals.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="model-diagnostics.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="model-diagnostics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="model-diagnostics.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="model-diagnostics.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="model-diagnostics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="model-diagnostics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
+<p><br></p>
+<p><strong>Does the assumption hold?</strong></p>
+<div id="radio_RBTYASAWEV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RBTYASAWEV" value=""></input> <span>No, since the histogram looks more bi-modal than bell shaped and many of the QQ-plot points are very far from the line.</span></label><label><input type="radio" autocomplete="off" name="radio_RBTYASAWEV" value="answer"></input> <span>Yes, while neither the histogram nor the QQ-plot are perfect, they both look adequate to show the residuals are approximately normally distributed. </span></label><label><input type="radio" autocomplete="off" name="radio_RBTYASAWEV" value=""></input> <span>Yes, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_RBTYASAWEV" value=""></input> <span>No, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label>
+</div>
 <p><br></p>
 
+</div>
 </div>
 </div>
 <script>
@@ -405,8 +446,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="bringing-it-all-together.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="prediction-and-prediction-errors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bringing-it-all-together.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

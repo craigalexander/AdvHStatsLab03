@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Part 1 - Introducing the Data</a>
 <ul>
+<li class="chapter" data-level="" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
 <li class="chapter" data-level="2.1" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="part-2---sum-of-squared-residuals.html"><a href="part-2---sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Part 2 - Sum of Squared Residuals</a></li>
@@ -205,22 +206,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="part-6---bringing-it-all-together.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="part-6---bringing-it-all-together.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="part-6---bringing-it-all-together.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="part-6---bringing-it-all-together.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="part-6---bringing-it-all-together.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="part-6---bringing-it-all-together.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="part-6---bringing-it-all-together.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> new_slug, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="part-6---bringing-it-all-together.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href="part-6---bringing-it-all-together.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and Slugging Prop.&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Slugging Prop.&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="part-6---bringing-it-all-together.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> new_slug, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="part-6---bringing-it-all-together.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-3"><a href="part-6---bringing-it-all-together.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and Slugging Prop.&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Slugging Prop.&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>Does the relationship between runs and slugging proportion look linear? If you knew a team’s slugging proportion, would you be comfortable using a linear model to predict the number of runs?</strong></p>
-<div id="radio_WWEMHYMPFA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WWEMHYMPFA" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the slugging proportion. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_WWEMHYMPFA" value=""></input> <span>Yes, the relationship does appear weakly positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label><label><input type="radio" autocomplete="off" name="radio_WWEMHYMPFA" value="answer"></input> <span>Yes, the relationship does appear strong, positive and linear. Therefore, we would be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label><label><input type="radio" autocomplete="off" name="radio_WWEMHYMPFA" value=""></input> <span>Yes, the relationship does appear moderately positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label>
+<div id="radio_MYDSMREKTE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MYDSMREKTE" value="answer"></input> <span>Yes, the relationship does appear strong, positive and linear. Therefore, we would be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label><label><input type="radio" autocomplete="off" name="radio_MYDSMREKTE" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the slugging proportion. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_MYDSMREKTE" value=""></input> <span>Yes, the relationship does appear moderately positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label><label><input type="radio" autocomplete="off" name="radio_MYDSMREKTE" value=""></input> <span>Yes, the relationship does appear weakly positive and linear. We would therefore be comfortable using a linear model to predict the number of runs from the slugging proportion.</span></label>
 </div>
 <p><br></p>
 </div>
@@ -231,22 +232,22 @@ Solution
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="part-6---bringing-it-all-together.html#cb17-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(???)</span>
-<span id="cb17-2"><a href="part-6---bringing-it-all-together.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="part-6---bringing-it-all-together.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="part-6---bringing-it-all-together.html#cb18-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(???)</span>
+<span id="cb18-2"><a href="part-6---bringing-it-all-together.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="part-6---bringing-it-all-together.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="part-6---bringing-it-all-together.html#cb18-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>new_slug, <span class="at">data =</span> mlb11)</span>
-<span id="cb18-2"><a href="part-6---bringing-it-all-together.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="part-6---bringing-it-all-together.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="part-6---bringing-it-all-together.html#cb19-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>new_slug, <span class="at">data =</span> mlb11)</span>
+<span id="cb19-2"><a href="part-6---bringing-it-all-together.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="part-6---bringing-it-all-together.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>How does the model between runs and slugging proportion compare to the at-bats and homeruns models?</strong></p>
-<div id="radio_VCKGMTFRND" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VCKGMTFRND" value=""></input> <span>The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs.</span></label><label><input type="radio" autocomplete="off" name="radio_VCKGMTFRND" value="answer"></input> <span>The new slugging model has an R^2 value of 0.897, significantly higher than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs.</span></label><label><input type="radio" autocomplete="off" name="radio_VCKGMTFRND" value=""></input> <span>The new slugging model has an R^2 value of 0.897, roughly the same as the at-bats and homeruns models. Therefore slugging proportion seems to explain around the same proportion of the variability in runs, and hence predicts runs as well as the previous two models.</span></label><label><input type="radio" autocomplete="off" name="radio_VCKGMTFRND" value=""></input> <span>The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a lower proportion of the variability in runs, and hence does a worse job of predicting runs.</span></label>
+<div id="radio_KZLTVOVXBA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KZLTVOVXBA" value=""></input> <span>The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs.</span></label><label><input type="radio" autocomplete="off" name="radio_KZLTVOVXBA" value=""></input> <span>The new slugging model has an R^2 value of 0.897, roughly the same as the at-bats and homeruns models. Therefore slugging proportion seems to explain around the same proportion of the variability in runs, and hence predicts runs as well as the previous two models.</span></label><label><input type="radio" autocomplete="off" name="radio_KZLTVOVXBA" value=""></input> <span>The new slugging model has an R^2 value of 0.897, significantly lower than the at-bats and homeruns models. Therefore slugging proportion seems to explain a lower proportion of the variability in runs, and hence does a worse job of predicting runs.</span></label><label><input type="radio" autocomplete="off" name="radio_KZLTVOVXBA" value="answer"></input> <span>The new slugging model has an R^2 value of 0.897, significantly higher than the at-bats and homeruns models. Therefore slugging proportion seems to explain a higher proportion of the variability in runs, and hence better predicts runs.</span></label>
 </div>
 <p><br></p>
 </div>
@@ -260,8 +261,8 @@ Solution
 <p><strong>The equation of the regression line is</strong> <input class='webex-solveme nospaces' size='1' data-answer='["C"]'/></p>
 <p><br></p>
 <p><strong>What does the slope tell us in the context of the relationship between the success of a team and its slugging percentage?</strong></p>
-<div id="radio_XRDCQTANNW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XRDCQTANNW" value=""></input> <span>For a unit increase in runs, the expected number of homeruns they hit in that season increases by 2681.</span></label><label><input type="radio" autocomplete="off" name="radio_XRDCQTANNW" value=""></input> <span>For a unit increase in runs, the expected number of homeruns they hit in that season decreases by 2681</span></label><label><input type="radio" autocomplete="off" name="radio_XRDCQTANNW" value=""></input> <span>For a unit increase in slugging prop, the expected number of runs they hit in that season decreases by 2681</span></label><label><input type="radio" autocomplete="off" name="radio_XRDCQTANNW" value="answer"></input> <span>For a unit increase in slugging prop, the expected number of runs they hit in that season increases by 2681.</span></label>
+<div id="radio_JQZORNJDSS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JQZORNJDSS" value=""></input> <span>For a unit increase in slugging prop, the expected number of runs they hit in that season decreases by 2681</span></label><label><input type="radio" autocomplete="off" name="radio_JQZORNJDSS" value="answer"></input> <span>For a unit increase in slugging prop, the expected number of runs they hit in that season increases by 2681.</span></label><label><input type="radio" autocomplete="off" name="radio_JQZORNJDSS" value=""></input> <span>For a unit increase in runs, the expected number of homeruns they hit in that season decreases by 2681</span></label><label><input type="radio" autocomplete="off" name="radio_JQZORNJDSS" value=""></input> <span>For a unit increase in runs, the expected number of homeruns they hit in that season increases by 2681.</span></label>
 </div>
 <p><br></p>
 </div>
@@ -272,31 +273,14 @@ Solution
 <button>
 Hint 1
 </button>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="part-6---bringing-it-all-together.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="part-6---bringing-it-all-together.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    geom_???() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="part-6---bringing-it-all-together.html#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(???) <span class="sc">+</span></span>
-<span id="cb19-4"><a href="part-6---bringing-it-all-together.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span>
-<span id="cb19-5"><a href="part-6---bringing-it-all-together.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="part-6---bringing-it-all-together.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
-<span id="cb19-7"><a href="part-6---bringing-it-all-together.html#cb19-7" aria-hidden="true" tabindex="-1"></a>    geom_???(???) <span class="sc">+</span></span>
-<span id="cb19-8"><a href="part-6---bringing-it-all-together.html#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(???)</span>
-<span id="cb19-9"><a href="part-6---bringing-it-all-together.html#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="part-6---bringing-it-all-together.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
-<span id="cb19-11"><a href="part-6---bringing-it-all-together.html#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
-<span id="cb19-12"><a href="part-6---bringing-it-all-together.html#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
-</div>
-<div class="webex-solution">
-<button>
-Hint 2
-</button>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="part-6---bringing-it-all-together.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="part-6---bringing-it-all-together.html#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-2"><a href="part-6---bringing-it-all-together.html#cb20-2" aria-hidden="true" tabindex="-1"></a>    geom_???() <span class="sc">+</span></span>
 <span id="cb20-3"><a href="part-6---bringing-it-all-together.html#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(???) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="part-6---bringing-it-all-together.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span>
+<span id="cb20-4"><a href="part-6---bringing-it-all-together.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span>
 <span id="cb20-5"><a href="part-6---bringing-it-all-together.html#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-6"><a href="part-6---bringing-it-all-together.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
-<span id="cb20-7"><a href="part-6---bringing-it-all-together.html#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(???) <span class="sc">+</span></span>
-<span id="cb20-8"><a href="part-6---bringing-it-all-together.html#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span>
+<span id="cb20-7"><a href="part-6---bringing-it-all-together.html#cb20-7" aria-hidden="true" tabindex="-1"></a>    geom_???(???) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="part-6---bringing-it-all-together.html#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(???)</span>
 <span id="cb20-9"><a href="part-6---bringing-it-all-together.html#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-10"><a href="part-6---bringing-it-all-together.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
 <span id="cb20-11"><a href="part-6---bringing-it-all-together.html#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
@@ -304,27 +288,44 @@ Hint 2
 </div>
 <div class="webex-solution">
 <button>
-Solution
+Hint 2
 </button>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="part-6---bringing-it-all-together.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="part-6---bringing-it-all-together.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
 <span id="cb21-2"><a href="part-6---bringing-it-all-together.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="part-6---bringing-it-all-together.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="part-6---bringing-it-all-together.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(???) <span class="sc">+</span></span>
 <span id="cb21-4"><a href="part-6---bringing-it-all-together.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span>
 <span id="cb21-5"><a href="part-6---bringing-it-all-together.html#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="part-6---bringing-it-all-together.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb21-7"><a href="part-6---bringing-it-all-together.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="part-6---bringing-it-all-together.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="part-6---bringing-it-all-together.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(???) <span class="sc">+</span></span>
 <span id="cb21-8"><a href="part-6---bringing-it-all-together.html#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span>
 <span id="cb21-9"><a href="part-6---bringing-it-all-together.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="part-6---bringing-it-all-together.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="part-6---bringing-it-all-together.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(???) <span class="sc">+</span></span>
 <span id="cb21-11"><a href="part-6---bringing-it-all-together.html#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
 <span id="cb21-12"><a href="part-6---bringing-it-all-together.html#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
 </div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="part-6---bringing-it-all-together.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="part-6---bringing-it-all-together.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="part-6---bringing-it-all-together.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="part-6---bringing-it-all-together.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span>
+<span id="cb22-5"><a href="part-6---bringing-it-all-together.html#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="part-6---bringing-it-all-together.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="part-6---bringing-it-all-together.html#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="part-6---bringing-it-all-together.html#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span>
+<span id="cb22-9"><a href="part-6---bringing-it-all-together.html#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="part-6---bringing-it-all-together.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m3, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="part-6---bringing-it-all-together.html#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
+<span id="cb22-12"><a href="part-6---bringing-it-all-together.html#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
+</div>
 <p><br></p>
 <p><strong>Do all the model assumptions hold?</strong></p>
-<div id="radio_DCMPFFTJSO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DCMPFFTJSO" value="answer"></input> <span>The points are randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions
-hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold also. The final two assumptions are hard for us to verify, but we will assume they hold</span></label><label><input type="radio" autocomplete="off" name="radio_DCMPFFTJSO" value=""></input> <span>The points are not randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions do not hold. The histogram also looks non-normal and the qq-plot has too many deviations from the diagonal line, so the normally distributed residual assumption seems to fail as well. The final two assumptions are hard for us to verify, but we will assume they hold.</span></label><label><input type="radio" autocomplete="off" name="radio_DCMPFFTJSO" value=""></input> <span>The points are randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions
-hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold also. The final two assumptions are hard for us to verify, so we assume they don't hold.</span></label><label><input type="radio" autocomplete="off" name="radio_DCMPFFTJSO" value=""></input> <span>The points are not randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions do not hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold however. The final two assumptions are hard for us to verify, but we will assume they hold</span></label>
+<div id="radio_DMTUANQFLA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DMTUANQFLA" value=""></input> <span>The points are not randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions do not hold. The histogram also looks non-normal and the qq-plot has too many deviations from the diagonal line, so the normally distributed residual assumption seems to fail as well. The final two assumptions are hard for us to verify, but we will assume they hold.</span></label><label><input type="radio" autocomplete="off" name="radio_DMTUANQFLA" value=""></input> <span>The points are randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions
+hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold also. The final two assumptions are hard for us to verify, so we assume they don't hold.</span></label><label><input type="radio" autocomplete="off" name="radio_DMTUANQFLA" value="answer"></input> <span>The points are randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions
+hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold also. The final two assumptions are hard for us to verify, but we will assume they hold</span></label><label><input type="radio" autocomplete="off" name="radio_DMTUANQFLA" value=""></input> <span>The points are not randomly scattered across and above/below zero line, so constant variance and mean zero residual assumptions do not hold. The histogram still looks relatively normal and the qq-plot looks relatively straight and diagonal, so the normally distributed residual assumption seems to hold however. The final two assumptions are hard for us to verify, but we will assume they hold</span></label>
 </div>
 <p><br></p>
 </div>

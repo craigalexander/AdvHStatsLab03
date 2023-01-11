@@ -1,4 +1,4 @@
-# Part 2 - Sum of Squared Residuals 
+# Sum of Squared Residuals 
 
 <br>
 

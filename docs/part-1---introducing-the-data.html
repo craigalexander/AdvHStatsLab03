@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Part 1 - Introducing the Data</a>
 <ul>
+<li class="chapter" data-level="" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
 <li class="chapter" data-level="2.1" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="part-2---sum-of-squared-residuals.html"><a href="part-2---sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Part 2 - Sum of Squared Residuals</a></li>
@@ -214,14 +215,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>• <strong>strikeouts</strong> : Number of strikeouts.</p>
 <p>• <strong>stolen_bases</strong> : Number of stolen bases.</p>
 <p>• <strong>wins</strong> : Number of wins.</p>
+<div id="loading-the-data" class="section level2 unnumbered hasAnchor">
+<h2>Loading the Data<a href="part-1---introducing-the-data.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You may download the dataset named <code>mlb11.csv</code> file from our Moodle course page. Once the file has downloaded, <strong>save it in the same folder</strong> as the <code>R</code> script file you created and saved for this lab. You should now set your working directory to this location by clicking <code>Session &gt; Set Working Directory &gt; To Source File Location</code>. You can load the data set into your workspace by running the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="part-1---introducing-the-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mlb11.csv&quot;</span>)</span></code></pre></div>
 <p>First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called <code>mlb11</code>.</p>
 <p>Run the code below to look at the first 6 rows of data and the structure of it. You have seen the <code>head()</code> and <code>str()</code> functions previously in your S1Y labs.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="part-1---introducing-the-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mlb11)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="part-1---introducing-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mlb11)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="part-1---introducing-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mlb11)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="part-1---introducing-the-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mlb11)</span></code></pre></div>
 <p><br></p>
 <p>How many baseball teams are there in America's Major League? <input class='webex-solveme nospaces' size='2' data-answer='["30"]'/></p>
 <p><br></p>
+</div>
 <div id="exercise-1" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> <strong>Exercise 1</strong><a href="part-1---introducing-the-data.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Create a plot to display the relationship between <code>runs</code> and <code>at_bats</code>, i.e. with <code>runs</code> as your outcome/response variable and <code>at_bats</code> as your explanatory/predictor variable. As an added bonus, you can add <code>+ labs(title = "", x = "", y = "")</code> onto your graph code to add a title and axes labels. Put the appropriate text between the quotation marks.</p>
@@ -229,22 +235,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="part-1---introducing-the-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="part-1---introducing-the-data.html#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-3"><a href="part-1---introducing-the-data.html#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="part-1---introducing-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="part-1---introducing-the-data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="part-1---introducing-the-data.html#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="part-1---introducing-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="part-1---introducing-the-data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href="part-1---introducing-the-data.html#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="part-1---introducing-the-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="part-1---introducing-the-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="part-1---introducing-the-data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>Does the relationship between runs and at-bats look linear? If you knew a team’s at-bats, would you be comfortable using a linear model to predict the number of runs?</strong></p>
-<div id="radio_CWVLVPQDFO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CWVLVPQDFO" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_CWVLVPQDFO" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_CWVLVPQDFO" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_CWVLVPQDFO" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
+<div id="radio_XRRSOWGTCY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XRRSOWGTCY" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_XRRSOWGTCY" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_XRRSOWGTCY" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_XRRSOWGTCY" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
 </div>
 <p><br></p>
 <p>If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. There is quite a lot of room for interpretation when looking at correlation coefficients, but a rough guide to interpreting them is given below.</p>
@@ -283,12 +289,12 @@ Solution
 </tbody>
 </table>
 <p>Run the following code to find the correlation coefficient between <code>runs</code> and <code>at_bats</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="part-1---introducing-the-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="part-1---introducing-the-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">cor</span>(runs, at_bats))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="part-1---introducing-the-data.html#cb6-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="part-1---introducing-the-data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">cor</span>(runs, at_bats))</span></code></pre></div>
 <p><br></p>
 <p><strong>Looking at your plot from the previous exercise, how would you describe the relationship between the two variables?</strong></p>
-<div id="radio_TPULMBHRPR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TPULMBHRPR" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_TPULMBHRPR" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_TPULMBHRPR" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_TPULMBHRPR" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label>
+<div id="radio_BJYDGYAGRG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BJYDGYAGRG" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_BJYDGYAGRG" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label><label><input type="radio" autocomplete="off" name="radio_BJYDGYAGRG" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_BJYDGYAGRG" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label>
 </div>
 <p><br></p>
 

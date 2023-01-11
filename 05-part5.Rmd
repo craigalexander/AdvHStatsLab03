@@ -1,4 +1,4 @@
-# Part 5 - Model Diagnostics
+# Model Diagnostics
 
 <br>
 
@@ -19,27 +19,27 @@ $$y_i|x_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)$$
 
 When we fit a simple linear regression model there are five main assumptions that have to hold in order for the model to be legitimate. These assumptions are:
 
-1. The deterministic part of the model captures all the non-random structure in the data, i.e. the residuals have mean zero.
+1. **Assumption 1:** The deterministic part of the model captures all the non-random structure in the data, i.e. the residuals have mean zero.
 
-2. The scale of the variability of the residuals is constant at all values of the explanatory variables.
+2. **Assumption 2:** The scale of the variability of the residuals is constant at all values of the explanatory variables.
 
-3. The residuals are normally distributed.
+3. **Assumption 3:** The residuals are normally distributed.
 
-4. The residuals are independent.
+4. **Assumption 4:** The residuals are independent.
 
-5. The values of the explanatory variables are recorded without error.
+5. **Assumption 5:** The values of the explanatory variables are recorded without error.
 
 ## How to check the assumptions of a Linear Model
 
-1. Plot the residuals against the explanatory variable (e.g. `at_bats`), or plot the residuals against the fitted values ($\hat{y}$). If the first assumption holds, i.e. the residuals have mean zero, then the residuals should be scattered randomly above and below the $y=0$ line.
+1. **Assumption 1:** Plot the residuals against the explanatory variable (e.g. `at_bats`), or plot the residuals against the fitted values ($\hat{y}$). If the first assumption holds, i.e. the residuals have mean zero, then the residuals should be scattered randomly above and below the $y=0$ line.
 
-2. Plot the residuals against the fitted values. If the second assumption holds, i.e. the scale of the variability of the residuals is constant at all values of the explanatory variables, then the residuals should be scattered randomly across the $y=0$ line, with no fanning or any other shape, such as a parabola.  
+2. **Assumption 2:** Plot the residuals against the fitted values. If the second assumption holds, i.e. the scale of the variability of the residuals is constant at all values of the explanatory variables, then the residuals should be scattered randomly across the $y=0$ line, with no fanning or any other shape, such as a parabola.  
 
-3. Plot a histogram of the residuals, or make a QQ-plot. If the third assumption holds, i.e. the residuals are normally distributed, the histogram should appear normally distributed, in the usual bell shape and centred at zero. For the QQ-plot, the points should be as close to a straight diagonal line as possible.
+3. **Assumption 3:** Plot a histogram of the residuals, or make a QQ-plot. If the third assumption holds, i.e. the residuals are normally distributed, the histogram should appear normally distributed, in the usual bell shape and centred at zero. For the QQ-plot, the points should be as close to a straight diagonal line as possible.
 
-4. Difficult to formally examine and often justified on the basis of experimental context.
+4. **Assumption 4:** Difficult to formally examine and often justified on the basis of experimental context.
 
-5. Difficult to formally examine and often justified on the basis of experimental context.
+5. **Assumption 5:** Difficult to formally examine and often justified on the basis of experimental context.
 
 <br>
 
@@ -78,7 +78,7 @@ q_name <- sample(c(
 
 ### **Exercise 7**
 
-**For the runs against at-bats model, does the assumption that the scale of the variability of the residuals is constant at all values of the explanatory variables, hold?**
+**Using the same figure above, for the runs against at-bats model, does the assumption that the scale of the variability of the residuals is constant at all values of the explanatory variables, hold?**
 
 ```{r, echo = FALSE}
 q_name <- sample(c(
@@ -94,7 +94,7 @@ q_name <- sample(c(
 
 <br>
 
-See below for some further examples of the second assumption not holding. 
+See below for some examples of the second assumption not holding. 
 
 ```{r firstnothold, echo = FALSE, out.width = "100%", fig.cap = ""}
 knitr::include_graphics("images/first-assumption.jpg")

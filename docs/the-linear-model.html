@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Group Exercise | S1Z Lab 3</title>
-  <meta name="description" content="8 Group Exercise | S1Z Lab 3" />
+  <title>4 The Linear Model | S1Z Lab 3</title>
+  <meta name="description" content="4 The Linear Model | S1Z Lab 3" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta property="og:title" content="4 The Linear Model | S1Z Lab 3" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta name="twitter:title" content="4 The Linear Model | S1Z Lab 3" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bringing-it-all-together.html"/>
-
+<link rel="prev" href="sum-of-squared-residuals.html"/>
+<link rel="next" href="prediction-and-prediction-errors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,38 +195,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="group-exercise" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Group Exercise<a href="group-exercise.html#group-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-linear-model" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> The Linear Model<a href="the-linear-model.html#the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
-<p>This data set includes data for 39 species of mammals distributed over 13 orders. The data were used for analyzing the relationship between constitutional and ecological factors and sleeping in mammals.</p>
-<p>Two sleep variables (dreaming and non dreaming) were recorded. Variables such as life span, body weight, brain weight and gestation time were evaluated.</p>
-<p>Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.</p>
-<p>Download the <code>.csv</code> file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page).</p>
-<p>Set your working directory and then load the <code>mammals</code> data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called <code>mammals.csv</code> rather than <code>mammals(1).csv</code> or whatever else.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="group-exercise.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mammals.csv&quot;</span>)</span></code></pre></div>
+<div id="fitting-the-linear-model" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Fitting the Linear Model<a href="the-linear-model.html#fitting-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As you can imagine, doing this process of minimising the sum of the squares of the residuals through trial and error is either going to a) take far too long and/or b) be very inaccurate.</p>
+<p>This is why we use <code>R</code> to minimise the sums of squares of the residuals for us, and hence fit the regression line for us as well.</p>
+<p>We use another function to do this, the <code>lm()</code> function i.e. the linear model function.</p>
+<p>This function takes two variables, separated by a <code>~</code> with the <span class="math inline">\(y\)</span> on the left and the <span class="math inline">\(x\)</span> on the right, as in <span class="math inline">\(y \sim x\)</span>. You also tell R where to look for the variables with the usual <code>data =</code> argument. For example using our <code>runs</code> and <code>at_bats</code> example we would type:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="the-linear-model.html#cb7-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>at_bats, <span class="at">data =</span> mlb11)</span></code></pre></div>
+<p>According to the above code, we have saved the estimated regression and assigned it to the object <code>m1</code> as our first model. Nothing appears when we run the code because we've not asked R to show us anything, just create the object <code>m1</code>.</p>
+<p>The output of this linear model function (not shown, but stored in <code>m1</code>) contains all of the information you would ever need about the model. To see it in a more condensed and accessible way you can use the summary function <code>summary()</code> on the model.</p>
 <p><br></p>
-<div id="tasks" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Tasks<a href="group-exercise.html#tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="summary-of-the-linear-model" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Summary of the Linear Model<a href="the-linear-model.html#summary-of-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
-<p>Repeat Exercises 9-12 again (written below as 1. - 4.) with two variables of your choosing from the <code>mammals</code> data set. e.g. you could examine the relationship between a species' brain weight (<span class="math inline">\(x\)</span>) and the total amount of sleep they get (<span class="math inline">\(y\)</span>). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.</p>
+<p>Run the code in the code below to look at the output of model summary.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="the-linear-model.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<p>This looks like a daunting and unintelligible mass of information, but you will get used to seeing more of these and which parts are relevant to our needs. Let's consider the output piece by piece.</p>
+<p>First, the formula used to describe the model is shown at the top (<code>lm(formula = runs ~ at_bats, data = mlb11)</code>).</p>
+<p>After the formula you find the five-figure summary of the residuals. This isn't something you'll look at that often.</p>
+<p>The coefficients table shown next is key; let's just have a quick reminder of the structure of a simple linear regression model so that we know exactly what the table is telling us. Recall that for our explanatory variable <span class="math inline">\(x\)</span> and our outcome variable <span class="math inline">\(y\)</span> we have that:</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 x_i + \epsilon_i\]</span>
+Recall also that <span class="math inline">\(\beta_0\)</span> is the <strong>intercept</strong> of the regression line and <span class="math inline">\(\beta_1\)</span> is the <strong>slope</strong> of the regression line.</p>
+<p>Let's return to the coefficients table. Particularly important to us now is the first column, the one titled "Estimate". <strong>This gives us our <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> values.</strong> Namely the (Intercept) estimate is <span class="math inline">\(\beta_0\)</span> and the at_bats estimate is the slope <span class="math inline">\(\beta_1\)</span>.</p>
+<p>So we can now write down our least squares estimated regression line as follows:</p>
+<p><span class="math display">\[\hat{y} = -2789 + 0.6305*x_i\]</span>
+<span class="math display">\[\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}\]</span>
+One last piece of information we will discuss from the summary output is the Multiple R-squared, or <span class="math inline">\(R^2\)</span>.</p>
+<p><span class="math inline">\(R^2 =\)</span> <strong>The proportion of variability in the response variable that is explained by the explanatory variable</strong></p>
+<p>Looking at our summary, we have an <span class="math inline">\(R^2 = 0.3729\)</span>. This means that only <span class="math inline">\(37.3\%\)</span> of the variability in the number of runs is explained by the at-bats. This is quite a low value, and implies that at-bats is not an excellent predictor of the number of runs a major league baseball team scores.</p>
 <p><br></p>
-<ol style="list-style-type: decimal">
-<li>Produce a scatterplot of the variables. Does there seem to be a linear relationship?</li>
-</ol>
+<div id="exercise-2" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> <strong>Exercise 2</strong><a href="the-linear-model.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a plot to display the relationship between <code>runs</code> and <code>homeruns</code>, i.e. with <code>runs</code> as your outcome/response variable and <code>at_bats</code> as your explanatory/predictor variable. Add a title and axes labels using the same method as before.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="the-linear-model.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="the-linear-model.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-3"><a href="the-linear-model.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="the-linear-model.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> homeruns, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="the-linear-model.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="the-linear-model.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and Homeruns&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Homeruns&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+</div>
 <p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Fit a suitable linear model to the variables.</li>
-</ol>
+<p><strong>Does the relationship between runs and homeruns look linear? If you knew a team’s homeruns, would you be comfortable using a linear model to predict the number of runs?</strong></p>
+<div id="radio_SONQCYAERL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the homeruns.</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the homeruns</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label>
+</div>
 <p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>What is the equation of the fitted regression line?</li>
-</ol>
+</div>
+<div id="exercise-3" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> <strong>Exercise 3</strong><a href="the-linear-model.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fit a new model <code>m2</code> that uses <code>homeruns</code> to predict <code>runs</code>, and show a summary of your new model.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="the-linear-model.html#cb11-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(???)</span>
+<span id="cb11-2"><a href="the-linear-model.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="the-linear-model.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(???)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-linear-model.html#cb12-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>homeruns, <span class="at">data =</span> mlb11)</span>
+<span id="cb12-2"><a href="the-linear-model.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="the-linear-model.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+</div>
 <p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Check the model assumptions. Do they all hold?</li>
-</ol>
+<p><strong>The equation of the regression line is</strong> <input class='webex-solveme nospaces' size='1' data-answer='["C"]'/></p>
+<p><br></p>
+<p>A: <span class="math inline">\(\textrm{Homeruns} = 1.83 + 415*\textrm{Runs}\)</span></p>
+<p>B :<span class="math inline">\(\textrm{Runs} = 1.83 + 415*\textrm{Homeruns}\)</span></p>
+<p>C: <span class="math inline">\(\textrm{Runs} = 415 + 1.83*\textrm{Homeruns}\)</span></p>
+<p>D: <span class="math inline">\(\textrm{Homeruns} = 415 + 1.83*\textrm{Runs}\)</span></p>
+<p><br></p>
+<p><strong>What does the slope tell us in the context of the relationship between success of a team and its home runs?</strong></p>
+<div id="radio_BOYDNYAHUX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value="answer"></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83.</span></label>
+</div>
 <p><br></p>
 
+</div>
 </div>
 </div>
 <script>
@@ -405,8 +466,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="bringing-it-all-together.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="sum-of-squared-residuals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prediction-and-prediction-errors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

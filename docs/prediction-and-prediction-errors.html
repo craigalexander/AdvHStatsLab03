@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Group Exercise | S1Z Lab 3</title>
-  <meta name="description" content="8 Group Exercise | S1Z Lab 3" />
+  <title>5 Prediction and Prediction Errors | S1Z Lab 3</title>
+  <meta name="description" content="5 Prediction and Prediction Errors | S1Z Lab 3" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta property="og:title" content="5 Prediction and Prediction Errors | S1Z Lab 3" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta name="twitter:title" content="5 Prediction and Prediction Errors | S1Z Lab 3" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bringing-it-all-together.html"/>
-
+<link rel="prev" href="the-linear-model.html"/>
+<link rel="next" href="model-diagnostics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,36 +195,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="group-exercise" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Group Exercise<a href="group-exercise.html#group-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="prediction-and-prediction-errors" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Prediction and Prediction Errors<a href="prediction-and-prediction-errors.html#prediction-and-prediction-errors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
-<p>This data set includes data for 39 species of mammals distributed over 13 orders. The data were used for analyzing the relationship between constitutional and ecological factors and sleeping in mammals.</p>
-<p>Two sleep variables (dreaming and non dreaming) were recorded. Variables such as life span, body weight, brain weight and gestation time were evaluated.</p>
-<p>Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.</p>
-<p>Download the <code>.csv</code> file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page).</p>
-<p>Set your working directory and then load the <code>mammals</code> data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called <code>mammals.csv</code> rather than <code>mammals(1).csv</code> or whatever else.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="group-exercise.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mammals.csv&quot;</span>)</span></code></pre></div>
+<p>Let's return to looking at the relationship between <code>runs</code> and <code>at_bats</code>. We'll combine our graph before with our fitted regression line from the model superimposed on top. Recall the equation for the regression line is:</p>
+<p><span class="math display">\[\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}\]</span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="prediction-and-prediction-errors.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="prediction-and-prediction-errors.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="prediction-and-prediction-errors.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="prediction-and-prediction-errors.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Here, we are literally adding a layer on top of our plot. <code>geom_smooth</code> adds the regression line fitted by minimizing the errors sum of squares. It can also show us the standard error <code>se</code> associated with our line, but we won't show that for now, using the <code>se = FALSE</code> argument. (Although you can set <code>se = TRUE</code> if you're interested in looking at it. It essentially creates a continuous confidence interval for values around the regression line.)</p>
+<p>The regression line can be used to predict <span class="math inline">\(y\)</span> at any value of <span class="math inline">\(x\)</span> within the range of observed <span class="math inline">\(x\)</span> values..</p>
 <p><br></p>
-<div id="tasks" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Tasks<a href="group-exercise.html#tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpolation is when...</strong></p>
+<div id="radio_EEEZYGJATT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EEEZYGJATT" value="answer"></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_EEEZYGJATT" value=""></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label>
+</div>
 <p><br></p>
-<p>Repeat Exercises 9-12 again (written below as 1. - 4.) with two variables of your choosing from the <code>mammals</code> data set. e.g. you could examine the relationship between a species' brain weight (<span class="math inline">\(x\)</span>) and the total amount of sleep they get (<span class="math inline">\(y\)</span>). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.</p>
+<p><strong>Extrapolation is when...</strong></p>
+<div id="radio_NWHSXDSOYA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NWHSXDSOYA" value="answer"></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_NWHSXDSOYA" value=""></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label>
+</div>
+<p>Extrapolation is not usually recommended. Predictions made within the range of the data are more reliable, and are also used to compute the residuals.</p>
 <p><br></p>
-<ol style="list-style-type: decimal">
-<li>Produce a scatterplot of the variables. Does there seem to be a linear relationship?</li>
-</ol>
+<p>Use the fitted model to answer the questions below.</p>
+<div id="exercise-4" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> <strong>Exercise 4</strong><a href="prediction-and-prediction-errors.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To the nearest whole number, the New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is <input class='webex-solveme nospaces' size='3' data-answer='["177"]'/></p>
 <p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Fit a suitable linear model to the variables.</li>
-</ol>
+<p><strong>Based on your previous answer, is the fitted value for the New York Yankees an overestimate or underestimate of their runs?</strong></p>
+<div id="radio_YQJXYNAWGS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YQJXYNAWGS" value="answer"></input> <span>An underestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YQJXYNAWGS" value=""></input> <span>An overestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YQJXYNAWGS" value=""></input> <span>An overestimate. The positive residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_YQJXYNAWGS" value=""></input> <span>An underestimate. The negative residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has underestimated the actual value.</span></label>
+</div>
 <p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>What is the equation of the fitted regression line?</li>
-</ol>
+</div>
+<div id="exercise-5" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> <strong>Exercise 5</strong><a href="prediction-and-prediction-errors.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To the nearest whole number. the Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) <input class='webex-solveme nospaces' size='3' data-answer='["-56"]'/></p>
 <p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Check the model assumptions. Do they all hold?</li>
-</ol>
+<p><strong>Based on your previous answer, is the fitted value for the Chicago Cubs an overestimate or underestimate of their runs?</strong></p>
+<div id="radio_WESGZBEZKV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WESGZBEZKV" value="answer"></input> <span>An overestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_WESGZBEZKV" value=""></input> <span>An underestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_WESGZBEZKV" value=""></input> <span>An underestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_WESGZBEZKV" value=""></input> <span>An overestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label>
+</div>
 <p><br></p>
 
 </div>
@@ -405,8 +417,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="bringing-it-all-together.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="the-linear-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

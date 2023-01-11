@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Group Exercise | S1Z Lab 3</title>
-  <meta name="description" content="8 Group Exercise | S1Z Lab 3" />
+  <title>2 Introducing the Data | S1Z Lab 3</title>
+  <meta name="description" content="2 Introducing the Data | S1Z Lab 3" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta property="og:title" content="2 Introducing the Data | S1Z Lab 3" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Group Exercise | S1Z Lab 3" />
+  <meta name="twitter:title" content="2 Introducing the Data | S1Z Lab 3" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bringing-it-all-together.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="sum-of-squared-residuals.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,36 +195,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="group-exercise" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Group Exercise<a href="group-exercise.html#group-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducing-the-data" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Introducing the Data<a href="introducing-the-data.html#introducing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
-<p>This data set includes data for 39 species of mammals distributed over 13 orders. The data were used for analyzing the relationship between constitutional and ecological factors and sleeping in mammals.</p>
-<p>Two sleep variables (dreaming and non dreaming) were recorded. Variables such as life span, body weight, brain weight and gestation time were evaluated.</p>
-<p>Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.</p>
-<p>Download the <code>.csv</code> file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page).</p>
-<p>Set your working directory and then load the <code>mammals</code> data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called <code>mammals.csv</code> rather than <code>mammals(1).csv</code> or whatever else.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="group-exercise.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mammals.csv&quot;</span>)</span></code></pre></div>
+<p><img src="images/moneyball.jpg" width="75%" /></p>
 <p><br></p>
-<div id="tasks" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Tasks<a href="group-exercise.html#tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The movie Moneyball follows a low-budget American baseball team, the Oakland Athletics, who believed that underused statistics, such as a player’s ability to get on base, better predict the ability to score runs, compared to statistics typically used like home runs and batting average. Obtaining players who excelled in these underused statistics turned out to be much more affordable for the team.</p>
+<p>In this lab we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.</p>
+<p>Our aim will be to summarise these relationships both graphically and numerically in order to find which variable, if any, helps us best predict a team’s runs scored in a season.</p>
+<p>The data set looks at the 2011 season in particular, and has data on all of the Major League Baseball teams, the highest paid baseball league in the United States.</p>
+<p>For this lab we’ll consider 9 of the variables in the dataset.</p>
+<p>The variables we'll consider are:</p>
+<p>• <strong>team</strong> : Name of the team.</p>
+<p>• <strong>runs</strong> : Number of runs.</p>
+<p>• <strong>at_bats</strong> : Number of at bats (a batters turn hitting against a pitcher, i.e. the member of the opposite team throwing the ball at them).</p>
+<p>• <strong>hits</strong> : Number of hits.</p>
+<p>• <strong>homeruns</strong> : Number of home runs.</p>
+<p>• <strong>bat_avg</strong> : Batting average.</p>
+<p>• <strong>strikeouts</strong> : Number of strikeouts.</p>
+<p>• <strong>stolen_bases</strong> : Number of stolen bases.</p>
+<p>• <strong>wins</strong> : Number of wins.</p>
+<div id="loading-the-data" class="section level2 unnumbered hasAnchor">
+<h2>Loading the Data<a href="introducing-the-data.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You may download the dataset named <code>mlb11.csv</code> file from our Moodle course page. Once the file has downloaded, <strong>save it in the same folder</strong> as the <code>R</code> script file you created and saved for this lab. You should now set your working directory to this location by clicking <code>Session &gt; Set Working Directory &gt; To Source File Location</code>. You can load the data set into your workspace by running the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introducing-the-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mlb11.csv&quot;</span>)</span></code></pre></div>
+<p>First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called <code>mlb11</code>.</p>
+<p>Run the code below to look at the first 6 rows of data and the structure of it. You have seen the <code>head()</code> and <code>str()</code> functions previously in your S1Y labs.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introducing-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mlb11)</span></code></pre></div>
 <p><br></p>
-<p>Repeat Exercises 9-12 again (written below as 1. - 4.) with two variables of your choosing from the <code>mammals</code> data set. e.g. you could examine the relationship between a species' brain weight (<span class="math inline">\(x\)</span>) and the total amount of sleep they get (<span class="math inline">\(y\)</span>). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducing-the-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mlb11)</span></code></pre></div>
 <p><br></p>
-<ol style="list-style-type: decimal">
-<li>Produce a scatterplot of the variables. Does there seem to be a linear relationship?</li>
-</ol>
+<p>How many baseball teams are there in America's Major League? <input class='webex-solveme nospaces' size='2' data-answer='["30"]'/></p>
 <p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Fit a suitable linear model to the variables.</li>
-</ol>
+</div>
+<div id="exercise-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> <strong>Exercise 1</strong><a href="introducing-the-data.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a plot to display the relationship between <code>runs</code> and <code>at_bats</code>, i.e. with <code>runs</code> as your outcome/response variable and <code>at_bats</code> as your explanatory/predictor variable. As an added bonus, you can add <code>+ labs(title = "", x = "", y = "")</code> onto your graph code to add a title and axes labels. Put the appropriate text between the quotation marks.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducing-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="introducing-the-data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="introducing-the-data.html#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introducing-the-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="introducing-the-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="introducing-the-data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+</div>
 <p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>What is the equation of the fitted regression line?</li>
-</ol>
+<p><strong>Does the relationship between runs and at-bats look linear? If you knew a team’s at-bats, would you be comfortable using a linear model to predict the number of runs?</strong></p>
+<div id="radio_RPENWXXARU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RPENWXXARU" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_RPENWXXARU" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_RPENWXXARU" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_RPENWXXARU" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
+</div>
 <p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Check the model assumptions. Do they all hold?</li>
-</ol>
+<p>If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. There is quite a lot of room for interpretation when looking at correlation coefficients, but a rough guide to interpreting them is given below.</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Correlation Coefficient</th>
+<th>Verbal Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.9 to 1.0 or -0.9 to -1.0</td>
+<td>Very strong positive or negative correlation</td>
+</tr>
+<tr class="even">
+<td>0.7 to 0.9 or -0.7 to -0.9</td>
+<td>Strong positive or negative correlation</td>
+</tr>
+<tr class="odd">
+<td>0.5 to 0.7 or -0.5 to -0.7</td>
+<td>Moderate positive or negative correlation</td>
+</tr>
+<tr class="even">
+<td>0.3 to 0.5 or -0.3 to -0.5</td>
+<td>Weak positive or negative correlation</td>
+</tr>
+<tr class="odd">
+<td>0.0 to 0.3 or 0.0 to -0.3</td>
+<td>Very weak positive or negative correlation</td>
+</tr>
+</tbody>
+</table>
+<p>Run the following code to find the correlation coefficient between <code>runs</code> and <code>at_bats</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introducing-the-data.html#cb6-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="introducing-the-data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">cor</span>(runs, at_bats))</span></code></pre></div>
+<p><br></p>
+<p><strong>Looking at your plot and the correlation coefficient you just calculated, how would you describe the relationship between the two variables?</strong></p>
+<div id="radio_CFASDAUUBA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CFASDAUUBA" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_CFASDAUUBA" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_CFASDAUUBA" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label><label><input type="radio" autocomplete="off" name="radio_CFASDAUUBA" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label>
+</div>
 <p><br></p>
 
 </div>
@@ -405,8 +476,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="bringing-it-all-together.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sum-of-squared-residuals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

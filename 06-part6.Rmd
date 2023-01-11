@@ -1,4 +1,4 @@
-# Part 6 - Bringing it all together
+# Bringing it all together
 
 <br>
 
@@ -92,6 +92,10 @@ q_name <- sample(c(
 
 ## **Exercise 11**
 
+**The equation of the regression line is** `r fitb("C")`
+
+<br>
+
 A: $\textrm{Slugging Prop} = -376 + 2681*\textrm{Runs}$
 
 B :$\textrm{Runs} = 2681 -376*\textrm{Slugging Prop}$
@@ -102,17 +106,15 @@ D: $\textrm{Slugging Prop} = 2681 - 376*\textrm{Runs}$
 
 <br>
 
-**The equation of the regression line is** `r fitb("C")`
 
-<br>
 
 **What does the slope tell us in the context of the relationship between the success of a team and its slugging percentage?**
 
 ```{r, echo = FALSE}
 q_name <- sample(c(
     "For a unit increase in slugging prop, the expected number of runs they hit in that season decreases by 2681",
-    "For a unit increase in runs, the expected number of homeruns they hit in that season increases by 2681.",
-    "For a unit increase in runs, the expected number of homeruns they hit in that season decreases by 2681",
+    "For a unit increase in runs, the expected slugging prop in that season increases by 2681.",
+    "For a unit increase in runs, the expected slugging prop in that season decreases by 2681",
     answer = "For a unit increase in slugging prop, the expected number of runs they hit in that season increases by 2681."
 )
 )

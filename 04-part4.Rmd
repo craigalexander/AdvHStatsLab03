@@ -1,4 +1,4 @@
-# Part 4 - Prediction and Prediction Errors
+# Prediction and Prediction Errors
 
 <br>
 
@@ -6,7 +6,7 @@ Let's return to looking at the relationship between `runs` and `at_bats`. We'll 
 
 $$\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}$$
 
-```{r runsatbatsline, exho = TRUE, eval = FALSE}
+```{r runsatbatsline, echo = TRUE, eval = FALSE}
 ggplot(data = mlb11, aes(x = at_bats, y = runs)) +
     geom_point() +
     labs(title = "Relationship between Runs and At-Bats", x = "At-Bats", y = "Runs") +
@@ -49,9 +49,12 @@ Extrapolation is not usually recommended. Predictions made within the range of t
 
 <br>
 
+Use the fitted model to answer the questions below.
+
+
 ## **Exercise 4**
 
-The New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is `r fitb(177)`
+To the nearest whole number, the New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is `r fitb(177)`
 
 <br>
 
@@ -73,7 +76,7 @@ q_name <- sample(c(
 
 ## **Exercise 5**
 
-The Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) `r fitb(-55.64)`
+To the nearest whole number. the Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) `r fitb(-56)`
 
 <br>
 
