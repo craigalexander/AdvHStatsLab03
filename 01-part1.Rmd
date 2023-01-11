@@ -16,7 +16,7 @@ Our aim will be to summarise these relationships both graphically and numericall
 
 The data set looks at the 2011 season in particular, and has data on all of the Major League Baseball teams, the highest paid baseball league in the United States. 
 
-For this lab we’ll consider 9 of the variables in the dataset. If you wish to attempt the Optional Further Tasks in your own time, you’ll work with some of the other variables as well. 
+For this lab we’ll consider 9 of the variables in the dataset.
 
 The variables we'll consider are:
 

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>S1Z Lab 3</title>
   <meta name="description" content="S1Z Lab 3" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="S1Z Lab 3" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -30,9 +29,9 @@
   
   
 
-<link rel="next" href="part-1-introducing-the-data.html"/>
-<script src="libs/header-attrs-2.16/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="part-1---introducing-the-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +39,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -92,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -134,50 +132,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3<span></span></a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression<span></span></a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="part-1-introducing-the-data.html"><a href="part-1-introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Part 1 - Introducing the Data<span></span></a>
+<li class="chapter" data-level="2" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Part 1 - Introducing the Data</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="part-1-introducing-the-data.html"><a href="part-1-introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong><span></span></a></li>
+<li class="chapter" data-level="2.1" data-path="part-1---introducing-the-data.html"><a href="part-1---introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="part-2-sum-of-squared-residuals.html"><a href="part-2-sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Part 2 - Sum of Squared Residuals<span></span></a></li>
-<li class="chapter" data-level="4" data-path="part-3-the-linear-model.html"><a href="part-3-the-linear-model.html"><i class="fa fa-check"></i><b>4</b> Part 3 - The Linear Model<span></span></a>
+<li class="chapter" data-level="3" data-path="part-2---sum-of-squared-residuals.html"><a href="part-2---sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Part 2 - Sum of Squared Residuals</a></li>
+<li class="chapter" data-level="4" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html"><i class="fa fa-check"></i><b>4</b> Part 3 - The Linear Model</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="part-3-the-linear-model.html"><a href="part-3-the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model<span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="part-3-the-linear-model.html"><a href="part-3-the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model<span></span></a>
+<li class="chapter" data-level="4.1" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model</a></li>
+<li class="chapter" data-level="4.2" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="part-3-the-linear-model.html"><a href="part-3-the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong><span></span></a></li>
-<li class="chapter" data-level="4.2.2" data-path="part-3-the-linear-model.html"><a href="part-3-the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong><span></span></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="part-4-prediction-and-prediction-errors.html"><a href="part-4-prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Part 4 - Prediction and Prediction Errors<span></span></a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="part-4-prediction-and-prediction-errors.html"><a href="part-4-prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong><span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="part-4-prediction-and-prediction-errors.html"><a href="part-4-prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong><span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="part-5-model-diagnostics.html"><a href="part-5-model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Part 5 - Model Diagnostics<span></span></a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="part-5-model-diagnostics.html"><a href="part-5-model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model<span></span></a></li>
-<li class="chapter" data-level="6.2" data-path="part-5-model-diagnostics.html"><a href="part-5-model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model<span></span></a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="part-5-model-diagnostics.html"><a href="part-5-model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong><span></span></a></li>
-<li class="chapter" data-level="6.2.2" data-path="part-5-model-diagnostics.html"><a href="part-5-model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong><span></span></a></li>
+<li class="chapter" data-level="4.2.1" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong></a></li>
+<li class="chapter" data-level="4.2.2" data-path="part-3---the-linear-model.html"><a href="part-3---the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Part 6 - Bringing it all together<span></span></a>
+<li class="chapter" data-level="5" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Part 4 - Prediction and Prediction Errors</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong><span></span></a></li>
-<li class="chapter" data-level="7.2" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong><span></span></a></li>
-<li class="chapter" data-level="7.3" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong><span></span></a></li>
-<li class="chapter" data-level="7.4" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong><span></span></a></li>
-<li class="chapter" data-level="7.5" data-path="part-6-bringing-it-all-together.html"><a href="part-6-bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong><span></span></a></li>
+<li class="chapter" data-level="5.1" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="part-4---prediction-and-prediction-errors.html"><a href="part-4---prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise<span></span></a>
+<li class="chapter" data-level="6" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Part 5 - Model Diagnostics</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks<span></span></a></li>
+<li class="chapter" data-level="6.1" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model</a></li>
+<li class="chapter" data-level="6.2" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong></a></li>
+<li class="chapter" data-level="6.2.2" data-path="part-5---model-diagnostics.html"><a href="part-5---model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Part 6 - Bringing it all together</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong></a></li>
+<li class="chapter" data-level="7.2" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong></a></li>
+<li class="chapter" data-level="7.3" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong></a></li>
+<li class="chapter" data-level="7.4" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
+<li class="chapter" data-level="7.5" data-path="part-6---bringing-it-all-together.html"><a href="part-6---bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
 
@@ -419,11 +417,10 @@ window.onload = function() {
         </div>
       </div>
 
-<a href="part-1-introducing-the-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-1---introducing-the-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -460,6 +457,10 @@ gitbook.start({
 "text": null
 },
 "download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -475,7 +476,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
