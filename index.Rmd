@@ -54,7 +54,7 @@ This lab will introduce the concept of modelling data using simple linear regres
 
 In this lab you will use the `tidyverse` package. On the lab PCs, open R Studio, create a new R Script and save this file. Now copy/paste/run the following lines of code in your R Script file in RStudio to load the library for this session:
 
-```{r load-packages, eval = FALSE}
+```{r load-packages, eval = FALSE, echo=TRUE}
 library(tidyverse)
 ```
 

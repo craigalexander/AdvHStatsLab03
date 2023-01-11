@@ -204,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is why we use <code>R</code> to minimise the sums of squares of the residuals for us, and hence fit the regression line for us as well.</p>
 <p>We use another function to do this, the <code>lm()</code> function i.e. the linear model function.</p>
 <p>This function takes two variables, separated by a <code>~</code> with the <span class="math inline">\(y\)</span> on the left and the <span class="math inline">\(x\)</span> on the right, as in <span class="math inline">\(y \sim x\)</span>. You also tell R where to look for the variables with the usual <code>data =</code> argument. For example using our <code>runs</code> and <code>at_bats</code> example we would type:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="the-linear-model.html#cb7-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>at_bats, <span class="at">data =</span> mlb11)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="the-linear-model.html#cb8-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>at_bats, <span class="at">data =</span> mlb11)</span></code></pre></div>
 <p>According to the above code, we have saved the estimated regression and assigned it to the object <code>m1</code> as our first model. Nothing appears when we run the code because we've not asked R to show us anything, just create the object <code>m1</code>.</p>
 <p>The output of this linear model function (not shown, but stored in <code>m1</code>) contains all of the information you would ever need about the model. To see it in a more condensed and accessible way you can use the summary function <code>summary()</code> on the model.</p>
 <p><br></p>
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.2</span> Summary of the Linear Model<a href="the-linear-model.html#summary-of-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 <p>Run the code in the code below to look at the output of model summary.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="the-linear-model.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="the-linear-model.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
 <p>This looks like a daunting and unintelligible mass of information, but you will get used to seeing more of these and which parts are relevant to our needs. Let's consider the output piece by piece.</p>
 <p>First, the formula used to describe the model is shown at the top (<code>lm(formula = runs ~ at_bats, data = mlb11)</code>).</p>
 <p>After the formula you find the five-figure summary of the residuals. This isn't something you'll look at that often.</p>
@@ -235,22 +235,22 @@ One last piece of information we will discuss from the summary output is the Mul
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="the-linear-model.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="the-linear-model.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-3"><a href="the-linear-model.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="the-linear-model.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="the-linear-model.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="the-linear-model.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="the-linear-model.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> homeruns, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="the-linear-model.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-3"><a href="the-linear-model.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and Homeruns&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Homeruns&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="the-linear-model.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> homeruns, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="the-linear-model.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href="the-linear-model.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and Homeruns&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Homeruns&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>Does the relationship between runs and homeruns look linear? If you knew a team’s homeruns, would you be comfortable using a linear model to predict the number of runs?</strong></p>
-<div id="radio_SONQCYAERL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the homeruns.</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the homeruns</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_SONQCYAERL" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label>
+<div id="radio_SNWLGNEQBP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SNWLGNEQBP" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the homeruns.</span></label><label><input type="radio" autocomplete="off" name="radio_SNWLGNEQBP" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_SNWLGNEQBP" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the homeruns. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_SNWLGNEQBP" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the homeruns</span></label>
 </div>
 <p><br></p>
 </div>
@@ -261,17 +261,17 @@ Solution
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="the-linear-model.html#cb11-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(???)</span>
-<span id="cb11-2"><a href="the-linear-model.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="the-linear-model.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-linear-model.html#cb12-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(???)</span>
+<span id="cb12-2"><a href="the-linear-model.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="the-linear-model.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-linear-model.html#cb12-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>homeruns, <span class="at">data =</span> mlb11)</span>
-<span id="cb12-2"><a href="the-linear-model.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="the-linear-model.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-linear-model.html#cb13-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(runs<span class="sc">~</span>homeruns, <span class="at">data =</span> mlb11)</span>
+<span id="cb13-2"><a href="the-linear-model.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="the-linear-model.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>The equation of the regression line is</strong> <input class='webex-solveme nospaces' size='1' data-answer='["C"]'/></p>
@@ -282,8 +282,8 @@ Solution
 <p>D: <span class="math inline">\(\textrm{Homeruns} = 415 + 1.83*\textrm{Runs}\)</span></p>
 <p><br></p>
 <p><strong>What does the slope tell us in the context of the relationship between success of a team and its home runs?</strong></p>
-<div id="radio_BOYDNYAHUX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value=""></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415</span></label><label><input type="radio" autocomplete="off" name="radio_BOYDNYAHUX" value="answer"></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83.</span></label>
+<div id="radio_USDUEAJLIC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_USDUEAJLIC" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 1.83.</span></label><label><input type="radio" autocomplete="off" name="radio_USDUEAJLIC" value=""></input> <span>For a unit increase in runs, i.e. for each additional run a major league baseball team hits in the season, the expected number of homeruns they hit in that season increases by 415</span></label><label><input type="radio" autocomplete="off" name="radio_USDUEAJLIC" value="answer"></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 1.83.</span></label><label><input type="radio" autocomplete="off" name="radio_USDUEAJLIC" value=""></input> <span>For a unit increase in homeruns, i.e. for each additional homerun a major league baseball team hits in the season, the expected number of runs they hit in that season increases by 415</span></label>
 </div>
 <p><br></p>
 
