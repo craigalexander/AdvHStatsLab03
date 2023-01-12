@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Model Diagnostics | S1Z Lab 3</title>
   <meta name="description" content="6 Model Diagnostics | S1Z Lab 3" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Model Diagnostics | S1Z Lab 3" />
   <meta property="og:type" content="book" />
@@ -47,24 +47,25 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,13 +85,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -132,50 +133,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a><ul>
 <li class="chapter" data-level="" data-path="introducing-the-data.html"><a href="introducing-the-data.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
 <li class="chapter" data-level="2.1" data-path="introducing-the-data.html"><a href="introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="sum-of-squared-residuals.html"><a href="sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Sum of Squared Residuals</a></li>
-<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a>
-<ul>
+<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a><ul>
 <li class="chapter" data-level="4.1" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model</a></li>
-<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong></a></li>
 <li class="chapter" data-level="4.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a>
-<ul>
+<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a><ul>
 <li class="chapter" data-level="5.1" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong></a></li>
 <li class="chapter" data-level="5.2" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a>
-<ul>
+<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a><ul>
 <li class="chapter" data-level="6.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model</a></li>
-<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong></a></li>
 <li class="chapter" data-level="6.2.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a>
-<ul>
+<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a><ul>
 <li class="chapter" data-level="7.1" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong></a></li>
 <li class="chapter" data-level="7.2" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong></a></li>
 <li class="chapter" data-level="7.3" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong></a></li>
 <li class="chapter" data-level="7.4" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
 <li class="chapter" data-level="7.5" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
-<ul>
+<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a><ul>
 <li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
@@ -195,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-diagnostics" class="section level1 hasAnchor" number="6">
+<div id="model-diagnostics" class="section level1 hasAnchor">
 <h1><span class="header-section-number">6</span> Model Diagnostics<a href="model-diagnostics.html#model-diagnostics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
 <p>Recall once more the notation for our linear model:</p>
@@ -204,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span> and <span class="math inline">\(i = 1,...,n\)</span>.</p>
 <p>The full probability model for <span class="math inline">\(y_i\)</span> given <span class="math inline">\(x_i\)</span> can be written as</p>
 <p><span class="math display">\[y_i|x_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)\]</span></p>
-<div id="assumptions-of-the-linear-model" class="section level2 hasAnchor" number="6.1">
+<div id="assumptions-of-the-linear-model" class="section level2 hasAnchor">
 <h2><span class="header-section-number">6.1</span> Assumptions of the Linear Model<a href="model-diagnostics.html#assumptions-of-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When we fit a simple linear regression model there are five main assumptions that have to hold in order for the model to be legitimate. These assumptions are:</p>
 <ol style="list-style-type: decimal">
@@ -215,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Assumption 5:</strong> The values of the explanatory variables are recorded without error.</p></li>
 </ol>
 </div>
-<div id="how-to-check-the-assumptions-of-a-linear-model" class="section level2 hasAnchor" number="6.2">
+<div id="how-to-check-the-assumptions-of-a-linear-model" class="section level2 hasAnchor">
 <h2><span class="header-section-number">6.2</span> How to check the assumptions of a Linear Model<a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p><strong>Assumption 1:</strong> Plot the residuals against the explanatory variable (e.g. <code>at_bats</code>), or plot the residuals against the fitted values (<span class="math inline">\(\hat{y}\)</span>). If the first assumption holds, i.e. the residuals have mean zero, then the residuals should be scattered randomly above and below the <span class="math inline">\(y=0\)</span> line.</p></li>
@@ -225,27 +217,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Assumption 5:</strong> Difficult to formally examine and often justified on the basis of experimental context.</p></li>
 </ol>
 <p><br></p>
-<div id="exercise-6" class="section level3 hasAnchor" number="6.2.1">
+<div id="exercise-6" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.2.1</span> <strong>Exercise 6</strong><a href="model-diagnostics.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the linear model of runs against at-bats model, does the assumption that the deterministic part of the model captures all the non-random structure in the data, i.e. the residuals have mean zero, hold?</p>
 <p>Run the code below to look at the scatter plot of the model residuals on the y-axis against the fitted values on the x-axis.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="model-diagnostics.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="model-diagnostics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="model-diagnostics.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="model-diagnostics.html#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="model-diagnostics.html#cb15-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> m1, <span class="kw">aes</span>(<span class="dt">x =</span> .fitted, <span class="dt">y =</span> .resid)) <span class="op">+</span></span>
+<span id="cb15-2"><a href="model-diagnostics.html#cb15-2"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb15-3"><a href="model-diagnostics.html#cb15-3"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-4"><a href="model-diagnostics.html#cb15-4"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Fitted Values&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
 <p>In the above code, <code>geom_hline()</code> adds a horizontal dashed line at y equals zero.</p>
 <p><br></p>
 <p><strong>Does the assumption hold?</strong></p>
-<div id="radio_ZNPTAHFRTF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZNPTAHFRTF" value=""></input> <span>No, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals do not have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_ZNPTAHFRTF" value=""></input> <span>Yes, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals have non-zero mean.</span></label><label><input type="radio" autocomplete="off" name="radio_ZNPTAHFRTF" value=""></input> <span>No, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_ZNPTAHFRTF" value="answer"></input> <span>Yes, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label>
+<div id="radio_MDNBKPUCVU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MDNBKPUCVU" value=""></input> <span>No, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals do not have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MDNBKPUCVU" value=""></input> <span>No, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MDNBKPUCVU" value="answer"></input> <span>Yes, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_MDNBKPUCVU" value=""></input> <span>Yes, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals have non-zero mean.</span></label>
 </div>
 <p><br></p>
 </div>
-<div id="exercise-7" class="section level3 hasAnchor" number="6.2.2">
+<div id="exercise-7" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.2.2</span> <strong>Exercise 7</strong><a href="model-diagnostics.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Using the same figure above, for the runs against at-bats model, does the assumption that the scale of the variability of the residuals is constant at all values of the explanatory variables, hold?</strong></p>
-<div id="radio_LJQGALWKOW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LJQGALWKOW" value="answer"></input> <span>Yes, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_LJQGALWKOW" value=""></input> <span>Yes, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_LJQGALWKOW" value=""></input> <span>No, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_LJQGALWKOW" value=""></input> <span>No, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label>
+<div id="radio_NMLRMLRECI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NMLRMLRECI" value="answer"></input> <span>Yes, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_NMLRMLRECI" value=""></input> <span>No, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_NMLRMLRECI" value=""></input> <span>Yes, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_NMLRMLRECI" value=""></input> <span>No, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label>
 </div>
 <p><br></p>
 <p>See below for some examples of the second assumption not holding.</p>
@@ -254,16 +246,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Exercise 8</strong></p>
 <p>For the runs against at-bats model, does the assumption that the residuals are normally distributed, hold?</p>
 <p>Run the code below to look at both the histogram and the normal Q-Q plot of the model residuals.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="model-diagnostics.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="model-diagnostics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="model-diagnostics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="model-diagnostics.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="model-diagnostics.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
-<span id="cb17-3"><a href="model-diagnostics.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="model-diagnostics.html#cb16-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> m1, <span class="kw">aes</span>(<span class="dt">x =</span> .resid)) <span class="op">+</span></span>
+<span id="cb16-2"><a href="model-diagnostics.html#cb16-2"></a><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">40</span>) <span class="op">+</span></span>
+<span id="cb16-3"><a href="model-diagnostics.html#cb16-3"></a><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="model-diagnostics.html#cb17-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> m1, <span class="kw">aes</span>(<span class="dt">sample =</span> .resid)) <span class="op">+</span></span>
+<span id="cb17-2"><a href="model-diagnostics.html#cb17-2"></a><span class="st">    </span><span class="kw">stat_qq</span>() <span class="op">+</span></span>
+<span id="cb17-3"><a href="model-diagnostics.html#cb17-3"></a><span class="st">    </span><span class="kw">stat_qq_line</span>()</span></code></pre></div>
 <p><br></p>
 <p><strong>Does the assumption hold?</strong></p>
-<div id="radio_VJCAWPWHWW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VJCAWPWHWW" value="answer"></input> <span>Yes, while neither the histogram nor the QQ-plot are perfect, they both look adequate to show the residuals are approximately normally distributed. </span></label><label><input type="radio" autocomplete="off" name="radio_VJCAWPWHWW" value=""></input> <span>No, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_VJCAWPWHWW" value=""></input> <span>Yes, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_VJCAWPWHWW" value=""></input> <span>No, since the histogram looks more bi-modal than bell shaped and many of the QQ-plot points are very far from the line.</span></label>
+<div id="radio_IUWKCBUXER" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IUWKCBUXER" value=""></input> <span>No, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_IUWKCBUXER" value=""></input> <span>No, since the histogram looks more bi-modal than bell shaped and many of the QQ-plot points are very far from the line.</span></label><label><input type="radio" autocomplete="off" name="radio_IUWKCBUXER" value=""></input> <span>Yes, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_IUWKCBUXER" value="answer"></input> <span>Yes, while neither the histogram nor the QQ-plot are perfect, they both look adequate to show the residuals are approximately normally distributed. </span></label>
 </div>
 <p><br></p>
 

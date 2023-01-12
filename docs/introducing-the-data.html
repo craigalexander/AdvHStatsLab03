@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Introducing the Data | S1Z Lab 3</title>
   <meta name="description" content="2 Introducing the Data | S1Z Lab 3" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Introducing the Data | S1Z Lab 3" />
   <meta property="og:type" content="book" />
@@ -47,24 +47,25 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,13 +85,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -132,50 +133,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a><ul>
 <li class="chapter" data-level="" data-path="introducing-the-data.html"><a href="introducing-the-data.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
 <li class="chapter" data-level="2.1" data-path="introducing-the-data.html"><a href="introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="sum-of-squared-residuals.html"><a href="sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Sum of Squared Residuals</a></li>
-<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a>
-<ul>
+<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a><ul>
 <li class="chapter" data-level="4.1" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model</a></li>
-<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong></a></li>
 <li class="chapter" data-level="4.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a>
-<ul>
+<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a><ul>
 <li class="chapter" data-level="5.1" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong></a></li>
 <li class="chapter" data-level="5.2" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a>
-<ul>
+<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a><ul>
 <li class="chapter" data-level="6.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model</a></li>
-<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong></a></li>
 <li class="chapter" data-level="6.2.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a>
-<ul>
+<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a><ul>
 <li class="chapter" data-level="7.1" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong></a></li>
 <li class="chapter" data-level="7.2" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong></a></li>
 <li class="chapter" data-level="7.3" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong></a></li>
 <li class="chapter" data-level="7.4" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
 <li class="chapter" data-level="7.5" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
-<ul>
+<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a><ul>
 <li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
@@ -195,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introducing-the-data" class="section level1 hasAnchor" number="2">
+<div id="introducing-the-data" class="section level1 hasAnchor">
 <h1><span class="header-section-number">2</span> Introducing the Data<a href="introducing-the-data.html#introducing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
 <p><img src="images/moneyball.jpg" width="75%" /></p>
@@ -218,47 +210,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="loading-the-data" class="section level2 unnumbered hasAnchor">
 <h2>Loading the Data<a href="introducing-the-data.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You may download the dataset named <code>mlb11.csv</code> file from our Moodle course page. Once the file has downloaded, <strong>save it in the same folder</strong> as the <code>R</code> script file you created and saved for this lab. You should now set your working directory to this location by clicking <code>Session &gt; Set Working Directory &gt; To Source File Location</code>. You can load the data set into your workspace by running the code below.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introducing-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mlb11.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introducing-the-data.html#cb2-1"></a>mlb11 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;mlb11.csv&quot;</span>)</span></code></pre></div>
 <p>First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called <code>mlb11</code>.</p>
 <p>Run the code below to look at the first 6 rows of data and the structure of it. You have seen the <code>head()</code> and <code>str()</code> functions previously in your S1Y labs.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducing-the-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mlb11)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducing-the-data.html#cb3-1"></a><span class="kw">head</span>(mlb11)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducing-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mlb11)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducing-the-data.html#cb4-1"></a><span class="kw">str</span>(mlb11)</span></code></pre></div>
 <p><br></p>
 <p>How many baseball teams are there in America's Major League? <input class='webex-solveme nospaces' size='2' data-answer='["30"]'/></p>
 <p><br></p>
 </div>
-<div id="exercise-1" class="section level2 hasAnchor" number="2.1">
+<div id="exercise-1" class="section level2 hasAnchor">
 <h2><span class="header-section-number">2.1</span> <strong>Exercise 1</strong><a href="introducing-the-data.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Create a plot to display the relationship between <code>runs</code> and <code>at_bats</code>, i.e. with <code>runs</code> as your outcome/response variable and <code>at_bats</code> as your explanatory/predictor variable. As an added bonus, you can add <code>+ labs(title = "", x = "", y = "")</code> onto your graph code to add a title and axes labels. Put the appropriate text between the quotation marks.</p>
 <div class="webex-solution">
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introducing-the-data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ???, <span class="at">mapping =</span> ???) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="introducing-the-data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href="introducing-the-data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(???)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introducing-the-data.html#cb5-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ???, <span class="dt">mapping =</span> ???) <span class="op">+</span></span>
+<span id="cb5-2"><a href="introducing-the-data.html#cb5-2"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb5-3"><a href="introducing-the-data.html#cb5-3"></a><span class="st">    </span><span class="kw">labs</span>(???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introducing-the-data.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="introducing-the-data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href="introducing-the-data.html#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introducing-the-data.html#cb6-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mlb11, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> at_bats, <span class="dt">y =</span> runs)) <span class="op">+</span></span>
+<span id="cb6-2"><a href="introducing-the-data.html#cb6-2"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb6-3"><a href="introducing-the-data.html#cb6-3"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Runs&quot;</span>)</span></code></pre></div>
 </div>
 <p><br></p>
 <p><strong>Does the relationship between runs and at-bats look linear? If you knew a team’s at-bats, would you be comfortable using a linear model to predict the number of runs?</strong></p>
-<div id="radio_LAOOXZXHXH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LAOOXZXHXH" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_LAOOXZXHXH" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_LAOOXZXHXH" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_LAOOXZXHXH" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
+<div id="radio_HTVFSGSPST" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HTVFSGSPST" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_HTVFSGSPST" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_HTVFSGSPST" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_HTVFSGSPST" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
 </div>
 <p><br></p>
 <p>If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. There is quite a lot of room for interpretation when looking at correlation coefficients, but a rough guide to interpreting them is given below.</p>
 <table>
-<colgroup>
-<col width="53%" />
-<col width="46%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Correlation Coefficient</th>
@@ -289,12 +277,12 @@ Solution
 </tbody>
 </table>
 <p>Run the following code to find the correlation coefficient between <code>runs</code> and <code>at_bats</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introducing-the-data.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="introducing-the-data.html#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">cor</span>(runs, at_bats))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introducing-the-data.html#cb7-1"></a>mlb11 <span class="op">%&gt;%</span></span>
+<span id="cb7-2"><a href="introducing-the-data.html#cb7-2"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="kw">cor</span>(runs, at_bats))</span></code></pre></div>
 <p><br></p>
 <p><strong>Looking at your plot and the correlation coefficient you just calculated, how would you describe the relationship between the two variables?</strong></p>
-<div id="radio_UZAHSMGGYH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UZAHSMGGYH" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_UZAHSMGGYH" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_UZAHSMGGYH" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_UZAHSMGGYH" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label>
+<div id="radio_NIJMDIYOQT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NIJMDIYOQT" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label><label><input type="radio" autocomplete="off" name="radio_NIJMDIYOQT" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_NIJMDIYOQT" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_NIJMDIYOQT" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label>
 </div>
 <p><br></p>
 

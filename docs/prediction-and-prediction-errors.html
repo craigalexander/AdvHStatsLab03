@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Prediction and Prediction Errors | S1Z Lab 3</title>
   <meta name="description" content="5 Prediction and Prediction Errors | S1Z Lab 3" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Prediction and Prediction Errors | S1Z Lab 3" />
   <meta property="og:type" content="book" />
@@ -47,24 +47,25 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,13 +85,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -132,50 +133,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a><ul>
 <li class="chapter" data-level="" data-path="introducing-the-data.html"><a href="introducing-the-data.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
 <li class="chapter" data-level="2.1" data-path="introducing-the-data.html"><a href="introducing-the-data.html#exercise-1"><i class="fa fa-check"></i><b>2.1</b> <strong>Exercise 1</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="sum-of-squared-residuals.html"><a href="sum-of-squared-residuals.html"><i class="fa fa-check"></i><b>3</b> Sum of Squared Residuals</a></li>
-<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a>
-<ul>
+<li class="chapter" data-level="4" data-path="the-linear-model.html"><a href="the-linear-model.html"><i class="fa fa-check"></i><b>4</b> The Linear Model</a><ul>
 <li class="chapter" data-level="4.1" data-path="the-linear-model.html"><a href="the-linear-model.html#fitting-the-linear-model"><i class="fa fa-check"></i><b>4.1</b> Fitting the Linear Model</a></li>
-<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="the-linear-model.html"><a href="the-linear-model.html#summary-of-the-linear-model"><i class="fa fa-check"></i><b>4.2</b> Summary of the Linear Model</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-2"><i class="fa fa-check"></i><b>4.2.1</b> <strong>Exercise 2</strong></a></li>
 <li class="chapter" data-level="4.2.2" data-path="the-linear-model.html"><a href="the-linear-model.html#exercise-3"><i class="fa fa-check"></i><b>4.2.2</b> <strong>Exercise 3</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a>
-<ul>
+<li class="chapter" data-level="5" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html"><i class="fa fa-check"></i><b>5</b> Prediction and Prediction Errors</a><ul>
 <li class="chapter" data-level="5.1" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-4"><i class="fa fa-check"></i><b>5.1</b> <strong>Exercise 4</strong></a></li>
 <li class="chapter" data-level="5.2" data-path="prediction-and-prediction-errors.html"><a href="prediction-and-prediction-errors.html#exercise-5"><i class="fa fa-check"></i><b>5.2</b> <strong>Exercise 5</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a>
-<ul>
+<li class="chapter" data-level="6" data-path="model-diagnostics.html"><a href="model-diagnostics.html"><i class="fa fa-check"></i><b>6</b> Model Diagnostics</a><ul>
 <li class="chapter" data-level="6.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#assumptions-of-the-linear-model"><i class="fa fa-check"></i><b>6.1</b> Assumptions of the Linear Model</a></li>
-<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#how-to-check-the-assumptions-of-a-linear-model"><i class="fa fa-check"></i><b>6.2</b> How to check the assumptions of a Linear Model</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-6"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Exercise 6</strong></a></li>
 <li class="chapter" data-level="6.2.2" data-path="model-diagnostics.html"><a href="model-diagnostics.html#exercise-7"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Exercise 7</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a>
-<ul>
+<li class="chapter" data-level="7" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html"><i class="fa fa-check"></i><b>7</b> Bringing it all together</a><ul>
 <li class="chapter" data-level="7.1" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-9"><i class="fa fa-check"></i><b>7.1</b> <strong>Exercise 9</strong></a></li>
 <li class="chapter" data-level="7.2" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-10"><i class="fa fa-check"></i><b>7.2</b> <strong>Exercise 10</strong></a></li>
 <li class="chapter" data-level="7.3" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-11"><i class="fa fa-check"></i><b>7.3</b> <strong>Exercise 11</strong></a></li>
 <li class="chapter" data-level="7.4" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
 <li class="chapter" data-level="7.5" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
-<ul>
+<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a><ul>
 <li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
@@ -195,47 +187,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prediction-and-prediction-errors" class="section level1 hasAnchor" number="5">
+<div id="prediction-and-prediction-errors" class="section level1 hasAnchor">
 <h1><span class="header-section-number">5</span> Prediction and Prediction Errors<a href="prediction-and-prediction-errors.html#prediction-and-prediction-errors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
 <p>Let's return to looking at the relationship between <code>runs</code> and <code>at_bats</code>. We'll combine our graph before with our fitted regression line from the model superimposed on top. Recall the equation for the regression line is:</p>
 <p><span class="math display">\[\textrm{Runs} = -2789 + 0.6305*\textrm{At-Bats}\]</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="prediction-and-prediction-errors.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mlb11, <span class="fu">aes</span>(<span class="at">x =</span> at_bats, <span class="at">y =</span> runs)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="prediction-and-prediction-errors.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href="prediction-and-prediction-errors.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="at">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Runs&quot;</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="prediction-and-prediction-errors.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="prediction-and-prediction-errors.html#cb14-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mlb11, <span class="kw">aes</span>(<span class="dt">x =</span> at_bats, <span class="dt">y =</span> runs)) <span class="op">+</span></span>
+<span id="cb14-2"><a href="prediction-and-prediction-errors.html#cb14-2"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb14-3"><a href="prediction-and-prediction-errors.html#cb14-3"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Relationship between Runs and At-Bats&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;At-Bats&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Runs&quot;</span>) <span class="op">+</span></span>
+<span id="cb14-4"><a href="prediction-and-prediction-errors.html#cb14-4"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>Here, we are literally adding a layer on top of our plot. <code>geom_smooth</code> adds the regression line fitted by minimizing the errors sum of squares. It can also show us the standard error <code>se</code> associated with our line, but we won't show that for now, using the <code>se = FALSE</code> argument. (Although you can set <code>se = TRUE</code> if you're interested in looking at it. It essentially creates a continuous confidence interval for values around the regression line.)</p>
 <p>The regression line can be used to predict <span class="math inline">\(y\)</span> at any value of <span class="math inline">\(x\)</span> within the range of observed <span class="math inline">\(x\)</span> values..</p>
 <p><br></p>
 <p><strong>Interpolation is when...</strong></p>
-<div id="radio_IJHDHPZOBI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IJHDHPZOBI" value=""></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_IJHDHPZOBI" value="answer"></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label>
+<div id="radio_JZOXPNBDFD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JZOXPNBDFD" value=""></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_JZOXPNBDFD" value="answer"></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label>
 </div>
 <p><br></p>
 <p><strong>Extrapolation is when...</strong></p>
-<div id="radio_PQTGAVOMDW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PQTGAVOMDW" value=""></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_PQTGAVOMDW" value="answer"></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label>
+<div id="radio_DPLPZLHTKI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DPLPZLHTKI" value="answer"></input> <span>Predictions for y are made from values of x outside the range of observed data.</span></label><label><input type="radio" autocomplete="off" name="radio_DPLPZLHTKI" value=""></input> <span>Predictions for y are made from values of x within the range of observed data.</span></label>
 </div>
 <p>Extrapolation is not usually recommended. Predictions made within the range of the data are more reliable, and are also used to compute the residuals.</p>
 <p><br></p>
 <p>Use the fitted model to answer the questions below.</p>
-<div id="exercise-4" class="section level2 hasAnchor" number="5.1">
+<div id="exercise-4" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.1</span> <strong>Exercise 4</strong><a href="prediction-and-prediction-errors.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To the nearest whole number, the New York Yankees had 867 runs and 5518 at-bats in the 2011 season. The residual for the New York Yankees is <input class='webex-solveme nospaces' size='3' data-answer='["177"]'/></p>
 <p><br></p>
 <p><strong>Based on your previous answer, is the fitted value for the New York Yankees an overestimate or underestimate of their runs?</strong></p>
-<div id="radio_UMTBMGNYQN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UMTBMGNYQN" value=""></input> <span>An underestimate. The negative residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_UMTBMGNYQN" value=""></input> <span>An overestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_UMTBMGNYQN" value="answer"></input> <span>An underestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_UMTBMGNYQN" value=""></input> <span>An overestimate. The positive residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has overestimated the actual value.</span></label>
+<div id="radio_XUJMXLHNIG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XUJMXLHNIG" value=""></input> <span>An underestimate. The negative residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_XUJMXLHNIG" value="answer"></input> <span>An underestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_XUJMXLHNIG" value=""></input> <span>An overestimate. The positive residual implies the fitted value is larger than the observed value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_XUJMXLHNIG" value=""></input> <span>An overestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label>
 </div>
 <p><br></p>
 </div>
-<div id="exercise-5" class="section level2 hasAnchor" number="5.2">
+<div id="exercise-5" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.2</span> <strong>Exercise 5</strong><a href="prediction-and-prediction-errors.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To the nearest whole number. the Chicago Cubs had 654 runs and 5549 at-bats in the 2011 season. The residual for the Chicago Cubs is (to 2 decimal places) <input class='webex-solveme nospaces' size='3' data-answer='["-56"]'/></p>
 <p><br></p>
 <p><strong>Based on your previous answer, is the fitted value for the Chicago Cubs an overestimate or underestimate of their runs?</strong></p>
-<div id="radio_GPMQBJOEYN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GPMQBJOEYN" value=""></input> <span>An underestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_GPMQBJOEYN" value=""></input> <span>An overestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_GPMQBJOEYN" value="answer"></input> <span>An overestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_GPMQBJOEYN" value=""></input> <span>An underestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label>
+<div id="radio_KJJINOECAC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KJJINOECAC" value=""></input> <span>An underestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_KJJINOECAC" value="answer"></input> <span>An overestimate. The negative residual implies the observed value is smaller than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_KJJINOECAC" value=""></input> <span>An overestimate. The positive residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has overestimated the actual value.</span></label><label><input type="radio" autocomplete="off" name="radio_KJJINOECAC" value=""></input> <span>An underestimate. The negative residual implies the observed value is larger than the fitted value i.e. the value given by the regression line has underestimated the actual value.</span></label>
 </div>
 <p><br></p>
 

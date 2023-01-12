@@ -22,7 +22,7 @@ mammals <- read.csv("mammals.csv")
 
 <br>
 
-Repeat Exercises 9-12 again (written below as 1. - 4.) with two  variables of your choosing from the `mammals` data set. e.g. you could examine the relationship between a species' brain weight ($x$) and the total amount of sleep they get ($y$). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric.
+Repeat Exercises 9-12 again (written below as 1. - 4.) with two  variables of your choosing from the `mammals` data set. e.g. you could examine the relationship between a species' brain weight ($x$) and the total amount of sleep they get ($y$). But it's up to you, as long as you have the explanatory and response variables in a way round that makes sense and they are both numeric. You may wish to consider an appropriate transformation of the data (e.g. `log()`), particularly for any variables with a small number of large outliers.
 
 <br>
 
