@@ -8,14 +8,13 @@ Two sleep variables (dreaming and non dreaming) were recorded. Variables such as
 
 Ecological variables such as severity of predation, safety of sleeping place and overall danger were inferred from field observations in the literature.
 
-Download the `.csv` file from the bottom of <a href="https://www.openintro.org/data/index.php?data=mammals">this OpenIntro page</a> (alternatively, its also available to download from the S1Z Moodle page). 
-
-Set your working directory and then load the `mammals` data set into your workspace by typing the following code in an Rscript file in RStudio, assuming that your downloaded file is called `mammals.csv` rather than `mammals(1).csv` or whatever else. 
+The data to be analyzed are saved in a `.csv` file called `mammals.csv` which can be imported using the following code.
 
 ```{r loadintorstudiomammals, eval = FALSE, echo = TRUE}
-mammals <- read.csv("mammals.csv")
+mammals <- read.csv(url("https://raw.githubusercontent.com/Glasgow-Stats-L1-L2/S1Z_Lab3/main/mammals.csv"))
 ```
 
+You may download the dataset named `mammals.csv` file from our Moodle course page. Once the file has downloaded, **save it in the same folder** as the `R` script file you created and saved for this lab. You should now set your working directory to this location by clicking `Session > Set Working Directory > To Source File Location`. You can load the data set into your workspace by running `mammals <- read.csv("mammals.csv")`. 
 <br>
 
 ## Tasks
