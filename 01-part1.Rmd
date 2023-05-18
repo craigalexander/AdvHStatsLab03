@@ -10,13 +10,13 @@ knitr::include_graphics("images/moneyball.jpg")
 
 The movie Moneyball follows a low-budget American baseball team, the Oakland Athletics, who believed that underused statistics, such as a player’s ability to get on base, better predict the ability to score runs, compared to statistics typically used like home runs and batting average. Obtaining players who excelled in these underused statistics turned out to be much more affordable for the team.
 
-In this lab we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.
+In this tutorial we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.
 
 Our aim will be to summarise these relationships both graphically and numerically in order to find which variable, if any, helps us best predict a team’s runs scored in a season.
 
 The data set looks at the 2011 season in particular, and has data on all of the Major League Baseball teams, the highest paid baseball league in the United States. 
 
-For this lab we’ll consider 9 of the variables in the dataset.
+For this tutorial we’ll consider 9 of the variables in the dataset.
 
 The variables we'll consider are:
 
@@ -46,11 +46,10 @@ The data to be analyzed are saved in a `.csv` file called `mlb11.csv` which can 
 mlb11 <- read.csv(url("https://raw.githubusercontent.com/Glasgow-Stats-L1-L2/S1Z_Lab3/main/mlb11.csv"))
 ```
 
-You may download the dataset named `mlb11.csv` file from our Moodle course page. Once the file has downloaded, **save it in the same folder** as the `R` script file you created and saved for this lab. You should now set your working directory to this location by clicking `Session > Set Working Directory > To Source File Location`. You can load the data set into your workspace by running `mlb11 <- read.csv("mlb11.csv")`. 
 
 First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called `mlb11`.
 
-Run the code below to look at the first 6 rows of data and the structure of it. You have seen the `head()` and `str()` functions previously in your S1Y labs. 
+Run the code below to look at the first 6 rows of data and the structure of it.
 
 ```{r head, echo = TRUE, eval = FALSE} 
 head(mlb11)

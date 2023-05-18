@@ -1,4 +1,4 @@
-# Group Exercise
+# Extra Tasks
 
 <br>
 
@@ -14,8 +14,6 @@ The data to be analyzed are saved in a `.csv` file called `mammals.csv` which ca
 mammals <- read.csv(url("https://raw.githubusercontent.com/Glasgow-Stats-L1-L2/S1Z_Lab3/main/mammals.csv"))
 ```
 
-You may download the dataset named `mammals.csv` file from our Moodle course page. Once the file has downloaded, **save it in the same folder** as the `R` script file you created and saved for this lab. You should now set your working directory to this location by clicking `Session > Set Working Directory > To Source File Location`. You can load the data set into your workspace by running `mammals <- read.csv("mammals.csv")`. 
-<br>
 
 ## Tasks
 

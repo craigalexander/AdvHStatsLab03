@@ -1,5 +1,5 @@
 ---
-title: "S1Z Lab 3"
+title: "Statistics Tutorial"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -38,7 +38,7 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-# Welcome to S1Z Lab 3 
+# Simple Linear Regression
 
 ```{r graphlinreg, echo = FALSE, out.width = "75%", fig.cap = ""}
 knitr::include_graphics("images/linear_regression.jpg")
@@ -50,9 +50,9 @@ knitr::include_graphics("images/linear_regression.jpg")
 
 <br>
 
-This lab will introduce the concept of modelling data using simple linear regression (SLR). 
+This tutorial will introduce the concept of modelling data using simple linear regression (SLR). 
 
-In this lab you will use the `tidyverse` package. On the lab PCs, open R Studio, create a new R Script and save this file. Now copy/paste/run the following lines of code in your R Script file in RStudio to load the library for this session:
+In this tutorial you will use the `tidyverse` package. Open R Studio, create a new R Script and save this file. Now copy/paste/run the following lines of code in your R Script file in RStudio to load the library for this session:
 
 ```{r load-packages, eval = FALSE, echo=TRUE}
 library(tidyverse)
@@ -70,7 +70,7 @@ Modelling generally has two main purposes:
 
 2. **Prediction:** To be able to predict the outcome variable $y$ for a new value of the explanatory variable $x$.  
 
-There are many different modelling techniques. In this lab, you will learn about one of the most commonly used approaches; **linear regression**. In particular, **simple** linear regression, where there is only one explanatory variable $x$. In Lab 2 we will consider the case of multiple linear regression where there are more than one explanatory variables.
+There are many different modelling techniques. In this tutorial, you will learn about one of the most commonly used approaches; **linear regression**. In particular, **simple** linear regression, where there is only one explanatory variable $x$. 
 
 <br>
 

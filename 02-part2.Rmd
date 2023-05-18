@@ -2,7 +2,7 @@
 
 <br>
 
-Think back to the way that we described the distribution of a single variable in S1Y Lab 1. Recall that we discussed characteristics such as center, spread, and shape. 
+Think back to the way that we described the distribution of a single variable. Recall that we discussed characteristics such as center, spread, and shape. 
 
 Just as you've used the mean, standard deviation and other statistics to summarize a single variable,  you can summarize the relationship between two variables by **finding the line that best follows their association**. 
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Model Diagnostics | S1Z Lab 3</title>
-  <meta name="description" content="6 Model Diagnostics | S1Z Lab 3" />
+  <title>6 Model Diagnostics | Statistics Tutorial</title>
+  <meta name="description" content="6 Model Diagnostics | Statistics Tutorial" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Model Diagnostics | S1Z Lab 3" />
+  <meta property="og:title" content="6 Model Diagnostics | Statistics Tutorial" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Model Diagnostics | S1Z Lab 3" />
+  <meta name="twitter:title" content="6 Model Diagnostics | Statistics Tutorial" />
   
   
   
@@ -132,10 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Simple Linear Regression</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a>
 <ul>
@@ -174,9 +174,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
 <li class="chapter" data-level="7.5" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
+<li class="chapter" data-level="8" data-path="extra-tasks.html"><a href="extra-tasks.html"><i class="fa fa-check"></i><b>8</b> Extra Tasks</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
+<li class="chapter" data-level="8.1" data-path="extra-tasks.html"><a href="extra-tasks.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
 
@@ -187,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 3</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics Tutorial</a>
           </h1>
         </div>
 
@@ -236,16 +236,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the above code, <code>geom_hline()</code> adds a horizontal dashed line at y equals zero.</p>
 <p><br></p>
 <p><strong>Does the assumption hold?</strong></p>
-<div id="radio_YLMFXOBFIZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YLMFXOBFIZ" value=""></input> <span>Yes, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals have non-zero mean.</span></label><label><input type="radio" autocomplete="off" name="radio_YLMFXOBFIZ" value=""></input> <span>No, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_YLMFXOBFIZ" value=""></input> <span>No, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals do not have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_YLMFXOBFIZ" value="answer"></input> <span>Yes, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label>
+<div id="radio_SBZVIPTYXD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SBZVIPTYXD" value=""></input> <span>No, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals do not have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_SBZVIPTYXD" value=""></input> <span>Yes, since the residuals aren't scattered evenly above and below the zero line, indicating that the residuals have non-zero mean.</span></label><label><input type="radio" autocomplete="off" name="radio_SBZVIPTYXD" value="answer"></input> <span>Yes, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label><label><input type="radio" autocomplete="off" name="radio_SBZVIPTYXD" value=""></input> <span>No, since the residuals are scattered evenly above and below the zero line, indicating that the residuals have mean zero.</span></label>
 </div>
 <p><br></p>
 </div>
 <div id="exercise-7" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> <strong>Exercise 7</strong><a href="model-diagnostics.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Using the same figure above, for the runs against at-bats model, does the assumption that the scale of the variability of the residuals is constant at all values of the explanatory variables, hold?</strong></p>
-<div id="radio_UVYNUMKPZO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UVYNUMKPZO" value=""></input> <span>No, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_UVYNUMKPZO" value=""></input> <span>Yes, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_UVYNUMKPZO" value="answer"></input> <span>Yes, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_UVYNUMKPZO" value=""></input> <span>No, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label>
+<div id="radio_QGEQIGGZSL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QGEQIGGZSL" value=""></input> <span>No, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_QGEQIGGZSL" value=""></input> <span>No, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_QGEQIGGZSL" value="answer"></input> <span>Yes, since the residuals are scattered randomly across the zero line, with no apparent pattern.</span></label><label><input type="radio" autocomplete="off" name="radio_QGEQIGGZSL" value=""></input> <span>Yes, since the residuals aren't scattered randomly across the zero line, there appears to be a slightly parabolic pattern.</span></label>
 </div>
 <p><br></p>
 <p>See below for some examples of the second assumption not holding.</p>
@@ -262,8 +262,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-3"><a href="model-diagnostics.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>()</span></code></pre></div>
 <p><br></p>
 <p><strong>Does the assumption hold?</strong></p>
-<div id="radio_AXXDPDSWUZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AXXDPDSWUZ" value="answer"></input> <span>Yes, while neither the histogram nor the QQ-plot are perfect, they both look adequate to show the residuals are approximately normally distributed. </span></label><label><input type="radio" autocomplete="off" name="radio_AXXDPDSWUZ" value=""></input> <span>Yes, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_AXXDPDSWUZ" value=""></input> <span>No, since the histogram looks more bi-modal than bell shaped and many of the QQ-plot points are very far from the line.</span></label><label><input type="radio" autocomplete="off" name="radio_AXXDPDSWUZ" value=""></input> <span>No, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label>
+<div id="radio_UPPZYCHMUW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UPPZYCHMUW" value=""></input> <span>Yes, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_UPPZYCHMUW" value=""></input> <span>No, since the histogram looks bell shaped and centred at zero and the points fit near-perfectly onto the line, we have shown that the residuals are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_UPPZYCHMUW" value=""></input> <span>No, since the histogram looks more bi-modal than bell shaped and many of the QQ-plot points are very far from the line.</span></label><label><input type="radio" autocomplete="off" name="radio_UPPZYCHMUW" value="answer"></input> <span>Yes, while neither the histogram nor the QQ-plot are perfect, they both look adequate to show the residuals are approximately normally distributed. </span></label>
 </div>
 <p><br></p>
 

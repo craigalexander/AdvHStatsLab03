@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Introducing the Data | S1Z Lab 3</title>
-  <meta name="description" content="2 Introducing the Data | S1Z Lab 3" />
+  <title>2 Introducing the Data | Statistics Tutorial</title>
+  <meta name="description" content="2 Introducing the Data | Statistics Tutorial" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Introducing the Data | S1Z Lab 3" />
+  <meta property="og:title" content="2 Introducing the Data | Statistics Tutorial" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Introducing the Data | S1Z Lab 3" />
+  <meta name="twitter:title" content="2 Introducing the Data | Statistics Tutorial" />
   
   
   
@@ -132,10 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to S1Z Lab 3</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Simple Linear Regression</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>1.1</b> Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#simple-linear-regression-1"><i class="fa fa-check"></i><b>1.2</b> Simple Linear Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introducing-the-data.html"><a href="introducing-the-data.html"><i class="fa fa-check"></i><b>2</b> Introducing the Data</a>
 <ul>
@@ -174,9 +174,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-12"><i class="fa fa-check"></i><b>7.4</b> <strong>Exercise 12</strong></a></li>
 <li class="chapter" data-level="7.5" data-path="bringing-it-all-together.html"><a href="bringing-it-all-together.html#exercise-13"><i class="fa fa-check"></i><b>7.5</b> <strong>Exercise 13</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="group-exercise.html"><a href="group-exercise.html"><i class="fa fa-check"></i><b>8</b> Group Exercise</a>
+<li class="chapter" data-level="8" data-path="extra-tasks.html"><a href="extra-tasks.html"><i class="fa fa-check"></i><b>8</b> Extra Tasks</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="group-exercise.html"><a href="group-exercise.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
+<li class="chapter" data-level="8.1" data-path="extra-tasks.html"><a href="extra-tasks.html#tasks"><i class="fa fa-check"></i><b>8.1</b> Tasks</a></li>
 </ul></li>
 </ul>
 
@@ -187,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S1Z Lab 3</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics Tutorial</a>
           </h1>
         </div>
 
@@ -201,10 +201,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/moneyball.jpg" width="75%" /></p>
 <p><br></p>
 <p>The movie Moneyball follows a low-budget American baseball team, the Oakland Athletics, who believed that underused statistics, such as a player’s ability to get on base, better predict the ability to score runs, compared to statistics typically used like home runs and batting average. Obtaining players who excelled in these underused statistics turned out to be much more affordable for the team.</p>
-<p>In this lab we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.</p>
+<p>In this tutorial we’ll be looking at data from all US Major League Baseball teams and examining the linear relationship between runs scored in a season and a number of other player statistics.</p>
 <p>Our aim will be to summarise these relationships both graphically and numerically in order to find which variable, if any, helps us best predict a team’s runs scored in a season.</p>
 <p>The data set looks at the 2011 season in particular, and has data on all of the Major League Baseball teams, the highest paid baseball league in the United States.</p>
-<p>For this lab we’ll consider 9 of the variables in the dataset.</p>
+<p>For this tutorial we’ll consider 9 of the variables in the dataset.</p>
 <p>The variables we'll consider are:</p>
 <p>• <strong>team</strong> : Name of the team.</p>
 <p>• <strong>runs</strong> : Number of runs.</p>
@@ -219,9 +219,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Loading the Data<a href="introducing-the-data.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data to be analyzed are saved in a <code>.csv</code> file called <code>mlb11.csv</code> which can be imported using the following code.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introducing-the-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a>mlb11 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://raw.githubusercontent.com/Glasgow-Stats-L1-L2/S1Z_Lab3/main/mlb11.csv&quot;</span>))</span></code></pre></div>
-<p>You may download the dataset named <code>mlb11.csv</code> file from our Moodle course page. Once the file has downloaded, <strong>save it in the same folder</strong> as the <code>R</code> script file you created and saved for this lab. You should now set your working directory to this location by clicking <code>Session &gt; Set Working Directory &gt; To Source File Location</code>. You can load the data set into your workspace by running <code>mlb11 &lt;- read.csv("mlb11.csv")</code>.</p>
 <p>First of all, it is always a good idea to look at the dataset you are working with to get a good sense of what it looks like, and the different types of data you may have, e.g. categorical or numerical. Recall, the dataset is called <code>mlb11</code>.</p>
-<p>Run the code below to look at the first 6 rows of data and the structure of it. You have seen the <code>head()</code> and <code>str()</code> functions previously in your S1Y labs.</p>
+<p>Run the code below to look at the first 6 rows of data and the structure of it.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducing-the-data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mlb11)</span></code></pre></div>
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducing-the-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mlb11)</span></code></pre></div>
@@ -250,8 +249,8 @@ Solution
 </div>
 <p><br></p>
 <p><strong>Does the relationship between runs and at-bats look linear? If you knew a team’s at-bats, would you be comfortable using a linear model to predict the number of runs?</strong></p>
-<div id="radio_CMIOSDVSTA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CMIOSDVSTA" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_CMIOSDVSTA" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_CMIOSDVSTA" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_CMIOSDVSTA" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label>
+<div id="radio_ZPKVZJXIUR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZPKVZJXIUR" value=""></input> <span>Yes, the relationship does appear approximately linear. However, we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_ZPKVZJXIUR" value=""></input> <span>No, the relationship does not appear linear, and hence we would not be comfortable using a linear model to predict the number of runs from the at-bats. We would have to consider a different varaible to choose.</span></label><label><input type="radio" autocomplete="off" name="radio_ZPKVZJXIUR" value=""></input> <span>No, the relationship does not appear linear. However, despite it's non-linearity we could still use a regression model to predict the number of runs from the at-bats.</span></label><label><input type="radio" autocomplete="off" name="radio_ZPKVZJXIUR" value="answer"></input> <span>Yes, the relationship does appear approximately linear. We would therefore be comfortable using a linear model to predict the number of runs from the at-bats.</span></label>
 </div>
 <p><br></p>
 <p>If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. There is quite a lot of room for interpretation when looking at correlation coefficients, but a rough guide to interpreting them is given below.</p>
@@ -294,8 +293,8 @@ Solution
 <span id="cb7-2"><a href="introducing-the-data.html#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">cor</span>(runs, at_bats))</span></code></pre></div>
 <p><br></p>
 <p><strong>Looking at your plot and the correlation coefficient you just calculated, how would you describe the relationship between the two variables?</strong></p>
-<div id="radio_AUOCQHETOW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AUOCQHETOW" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_AUOCQHETOW" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_AUOCQHETOW" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_AUOCQHETOW" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label>
+<div id="radio_WSMHNAXZJO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WSMHNAXZJO" value=""></input> <span>There appears to be a strong positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label><label><input type="radio" autocomplete="off" name="radio_WSMHNAXZJO" value=""></input> <span>There appears to be a weak positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations.</span></label><label><input type="radio" autocomplete="off" name="radio_WSMHNAXZJO" value=""></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any unusual observations</span></label><label><input type="radio" autocomplete="off" name="radio_WSMHNAXZJO" value="answer"></input> <span>There appears to be a moderate positive linear relationship between the runs of a Major League baseball team and their at-bats. There aren't any particularly unusual observations, but the point at roughly (5525, 870) could be considered slightly unusual.</span></label>
 </div>
 <p><br></p>
 

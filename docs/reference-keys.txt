@@ -1,6 +1,6 @@
-welcome-to-s1z-lab-3
-intended-learning-outcomes
 simple-linear-regression
+intended-learning-outcomes
+simple-linear-regression-1
 introducing-the-data
 exercise-1
 sum-of-squared-residuals
@@ -23,5 +23,5 @@ exercise-10
 exercise-11
 exercise-12
 exercise-13
-group-exercise
+extra-tasks
 tasks
